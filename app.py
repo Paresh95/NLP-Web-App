@@ -1,5 +1,5 @@
 from flask import Flask, request, render_template
-from models import predict_summariser
+from models import predict_summariser, predict_sentiment, flesch_reading_score, get_emotion_scores
 from utils import get_reduced_text_perc
 
 
