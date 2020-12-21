@@ -198,6 +198,7 @@ padding-left: 25px;
   color: #fff;
   font-size: 2em;
   position: absolute;
+  width: 90%;
 }
 
 .txt-rotate{
@@ -222,12 +223,11 @@ padding-left: 25px;
 }
 
 .arrow-paragraph{
-  font-size: 90px;
+  font-size: 5rem;
   max-height: 70px;
   position: relative;
   bottom: 50px;
-  margin-bottom: -20px;
-
+  margin-bottom: -30px;
 }
 
 .nlp-icon-text{
@@ -271,7 +271,7 @@ padding-left: 25px;
 
 .demo-helper-text{
   font-size: 1.5em;
-  line-height: 1em;
+  line-height: 1.5em;
 }
 
 .form-control{
@@ -308,7 +308,7 @@ textarea.form-control {
 }
 
 .text-label{
-  line-height: 3rem;
+  line-height: 3em;
   font-size: 12px;
 }
 
