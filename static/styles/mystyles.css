@@ -300,8 +300,8 @@ textarea.form-control {
 .number-box{
   text-align: center; 
   font-size: 1.2rem;
-  width: 10%;
-  height: 10%;
+  width: 40px;
+  height: 30px;
   color: #080808;
 }
 
