@@ -1,48 +1,48 @@
-from transformers import pipeline
+#from transformers import pipeline
 import textstat
 from nrclex import NRCLex
 from SimpleText.preprocessor import lowercase, strip_accents, strip_punctuation, strip_url 
 
 
-def predict_summariser(text, min_words=20, max_words=650):
-    """
-    Input
-    ----------
-    text (string)
-    min_words (int): The minimum number of words to use for the summary
-    max_words (int): The maximum number of words to use for the summary
+# def predict_summariser(text, min_words=20, max_words=650):
+# """
+# Input
+# ----------
+# text (string)
+# min_words (int): The minimum number of words to use for the summary
+# max_words (int): The maximum number of words to use for the summary
+
+
+# Returns
+# ----------
+# Summarised text
+# """
+
+# # if max_words exceeds words in text make the max_words = no. of words in the text
+# if max_words > len(text.split()):
+#     max_words = len(text.split())
+
+# # Note that "bart-large-cnn" is the default model for the summarization pipeline
+# summarizer = pipeline("summarization")
+# summarised_sentances = summarizer(text, min_length=min_words, max_length=max_words, do_sample=False, early_stopping=False)[0]['summary_text']
+
+# # The above can output incomplete sentances, the below removes uncomplete sentances e.g. "I like. Hi" becomes "I like.""
+# return summarised_sentances[ :summarised_sentances.rindex(".") + 1]
     
-    
-    Returns
-    ----------
-    Summarised text
-    """
 
-    # if max_words exceeds words in text make the max_words = no. of words in the text
-    if max_words > len(text.split()):
-        max_words = len(text.split())
+# def predict_sentiment(text):
+#     """
+#     Input
+#     ----------
+#     text(string)
 
-    # Note that "bart-large-cnn" is the default model for the summarization pipeline
-    summarizer = pipeline("summarization")
-    summarised_sentances = summarizer(text, min_length=min_words, max_length=max_words, do_sample=False, early_stopping=False)[0]['summary_text']
-    
-    # The above can output incomplete sentances, the below removes uncomplete sentances e.g. "I like. Hi" becomes "I like.""
-    return summarised_sentances[ :summarised_sentances.rindex(".") + 1]
-    
+#     Returns
+#     ----------
+#     JSON object of sentiment (label) and sentiment score (score)
+#     """
 
-def predict_sentiment(text):
-    """
-    Input
-    ----------
-    text(string)
-
-    Returns
-    ----------
-    JSON object of sentiment (label) and sentiment score (score)
-    """
-
-    sentiment = pipeline('sentiment-analysis')
-    return sentiment(text)[0]
+#     sentiment = pipeline('sentiment-analysis')
+#     return sentiment(text)[0]
 
 
 def flesch_reading_score(text):

@@ -1,5 +1,5 @@
 from flask import Flask, request, render_template
-from models import predict_summariser, predict_sentiment, flesch_reading_score, get_emotion_scores
+from models import flesch_reading_score, get_emotion_scores #predict_summariser, predict_sentiment
 from utils import get_reduced_text_perc
 
 
@@ -28,7 +28,8 @@ def home2():
     except:
         max_words = 650
 
-    summarised_text = predict_summariser(summary_text, min_words=min_words, max_words=max_words)
+    #summarised_text = predict_summariser(summary_text, min_words=min_words, max_words=max_words)
+    summarised_text = get_emotion_scores(summary_text)
     reduced_text_perc = get_reduced_text_perc(summary_text=summary_text, summarised_text=summarised_text )
 
     return render_template('summariser.html', summarised_text=summarised_text, \
