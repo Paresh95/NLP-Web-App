@@ -1,5 +1,3 @@
-#torch==1.7.0
-#transformers==4.0.0
 textstat==0.7.0
 SimpleText==1.0.3
 NRCLex==3.0.0
