@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+
+  <meta charset="utf-8">
+  <title>Summariser</title>
+
+  <!-- Google fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap -->
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <!-- My styles -->
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/mystyles.css') }}">
+
+</head>
+
+<body>
+
+  <!-- Coloured demo section -->
+  <section id="demo-section">
+
+    <!-- Nav Bar -->
+    <header>
+      <nav>
+        <input id="nav-toggle" type="checkbox">
+
+        <a href="/"><img class="main-icon" src="{{ url_for('static', filename='images/home2-icon-green.png') }}" /></a>
+
+        <ul class="links">
+          <li><a class="nav-heading" href="/about">About</a></li>
+          <li><a class="nav-heading" href="/summariser">Text Summariser</a></li>
+          <li><a class="nav-heading" href="/sentiment">Sentiment Analysis</a></li>
+        </ul>
+        <label for="nav-toggle" class="icon-burger">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </label>
+      </nav>
+    </header>
+
+    <!-- Summariser -->
+    <div class="demo-headings">
+      <h1 class="section-header"> <span class="hightlighted-heading-words"> Summarise</span> your text</h1>
+      <h3>Write and click <b>SUMMARISE</b></h3>
+    </div>
+
+    <div class="div-demo">
+
+      <div class="container">
+
+        <form method="POST">
+          <div class="col-md-6 div-input-text-box">
+
+            <div class="text-label">
+              <label class="demo-helper-text"> Summarised text length range: </label>
+              <input class="number-box" type="text" name="min words" placeholder="20" value="{{min_words}}">
+              <label class="demo-helper-text"> to </label>
+              <input class="number-box" type="text" name="max words" placeholder="650" value="{{max_words}}">
+              <label class="demo-helper-text"> words </label>
+            </div>
+
+            <textarea class="form-control demo-text-input" name="summary text" maxlength="4000" placeholder="Enter Your Text - works best for paragraphs and short articles">{{summary_text}}</textarea>
+            <span id="characters" style="color:#888;"></span><span style="color:#888;">/ 4000 characters used</span>
+            
+          </div>
+
+          <div class="col-md-6">
+
+            <div class="text-label">
+              <label class="demo-helper-text">{{reduced_text_perc}} </label>
+            </div>
+
+            <textarea class="form-control" name="summarised text" placeholder="Summarised text will be here">{{summarised_text}}</textarea>
+          
+          </div>
+
+          <div>
+            <button type="submit" class="btn btn-default submit"><b>SUMMARISE</b></button>
+          </div>
+
+        </form>
+
+      </div>
+
+    </div>
+    
+  </section>
+
+  <!--Animate loader off screen-->
+  <div class='spinner-wrapper'>
+    <div class="spinner"></div>
+  </div>
+
+  <!-- Jquery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+  <!-- modernizr -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+
+  <!-- bootstrap -->
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+  
+  <!-- my custom scripts -->
+  <script src="{{ url_for('static', filename='js/pageLoad.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/navHover.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/characterCount.js') }}"></script>
+
+</body>
+
+</html>

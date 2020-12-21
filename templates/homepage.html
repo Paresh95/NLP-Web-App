@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  
+  <meta charset="utf-8">
+  <title>Homepage</title>
+
+  <!-- Google fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <!-- Bootstrap Scripts -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+  <!-- My styles -->
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/mystyles.css') }}">
+
+</head>
+
+<body class="homepage">
+
+  <!-- Nav Bar -->
+  <header>
+    <nav>
+      <input id="nav-toggle" type="checkbox">
+
+      <a href="/"><img class="main-icon" src="{{ url_for('static', filename='images/home2-icon-green.png') }}" /></a>
+
+      <ul class="links">
+        <li><a class="nav-heading" href="/about">About</a></li>
+        <li><a class="nav-heading" href="/summariser">Text Summariser</a></li>
+        <li><a class="nav-heading" href="/sentiment">Sentiment Analysis</a></li>
+      </ul>
+      <label for="nav-toggle" class="icon-burger">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </label>
+    </nav>
+  </header>
+
+<!-- Headings and Icons Div -->
+  <div class="container-fluid">
+
+    <!-- Headings Div -->
+    <div class="row div-homepage-main">
+      <div class="col-lg-7 div-homepage-headings">
+        <h1 class="homepage-h1">Natural Language Processing with Paresh</h1>
+        <h2 class="homepage-h2">Use techniques like...
+          <span class="txt-rotate" data-period="1000" data-rotate='[ "text summarisation.", "sentiment analysis."]'></span>
+        </h2>
+      </div>
+
+      <!-- Icons Div -->
+      <div class="col-lg-5 div-homepage-right">
+        
+        <!-- Icons Text Data Div -->
+        <div class="text-data">
+          <img class="other-icon" src="{{ url_for('static', filename='images/newspaper-icon-green.png') }}" />
+          <img class="other-icon" src="{{ url_for('static', filename='images/book-icon-green.png') }}" />
+          <img class="other-icon" src="{{ url_for('static', filename='images/twitter-icon-green.png') }}" />
+          <p>Text data</p>
+          <p class="arrow-paragraph">&#8595;</p>
+        </div>
+
+        <!-- Icons Machine Learning Div -->
+        <div class="div-machine-learning">
+          <img class="other-icon" src="{{ url_for('static', filename='images/AI-icon-green.png') }}" />
+          <p>Machine learning</p>
+          <p class="arrow-paragraph">&#8595;</p>
+        </div>
+
+        <!-- Icons NLP applications Div -->
+        <div class="row div-homepage-right-small-outer">
+
+          <div class="col-md-2.5 div-homepage-right-small-inner">
+            <a class="icon-links" href="/summariser">
+              <img class="other-icon" src="{{ url_for('static', filename='images/text-icon-green.png') }}" />
+              <p>Text summarisation</p>
+            </a>
+          </div>
+          <div class="col-md-2.5 div-homepage-right-small-inner">
+            <a class="icon-links" href="/sentiment">
+              <img class="sentiment-icon other-icon" src="{{ url_for('static', filename='images/sentiment-icon-green.png') }}" />
+              <p>Sentiment analysis</p>
+            </a>
+          </div>
+
+        </div>
+
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+  </div>
+
+  <!-- My custom scripts -->
+  <script src="{{ url_for('static', filename='js/animateTextHomepage.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/navHover.js') }}"></script>
+
+</body>
+
+</html>
