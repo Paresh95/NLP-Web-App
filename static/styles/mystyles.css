@@ -3,41 +3,6 @@
 body {
   font-family: 'Montserrat', sans-serif;
   }
-
-/*Responsive web layout
-@media only screen 
-and (min-device-width : 480px) 
-and (max-device-width : 700px) 
-and (orientation : landscape) {
-
-}
-
-@media only screen 
-and (min-device-width : 480px) 
-and (max-device-width : 700px) 
-and (orientation : portrait) {
-
-}
-
-
-
-
-
-/*
-@media only screen and (max-device-width : 900px) {
-  #primary {width: 67%;}
-  #secondary {width: 30%; margin-left: 3%;}
-}
-
-@media only screen and (max-device-width : 768px) {
-  #primary {width: 50%;}
-  #secondary {width: 500%; margin: 0; border: none;}
-}
-
-*/ 
-
-
-
   
 /* Navigation Bar*/
 
@@ -224,8 +189,9 @@ padding-left: 25px;
 }
 
 .homepage-h1 { 
-    font-size: 3.5em; 
-    padding-bottom: 100px;
+    font-size: 2.5rem; 
+    margin-bottom: 100px;
+    width: 100%;
 }
 
 .homepage-h2 {
