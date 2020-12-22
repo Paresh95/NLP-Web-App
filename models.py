@@ -4,6 +4,21 @@ from nrclex import NRCLex
 from SimpleText.preprocessor import lowercase, strip_accents, strip_punctuation, strip_url 
 
 
+
+
+
+from summarizer import Summarizer
+
+
+def predict_summariser(text):
+    model = Summarizer()
+    result = model(text, ratio=1, min_length=90, max_length=150, algorithm='t5-small') 
+
+    return result
+
+
+
+
 # def predict_summariser(text, min_words=20, max_words=650):
 # """
 # Input

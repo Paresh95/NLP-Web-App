@@ -9,8 +9,6 @@ body {
 .main-icon{
   width: 50px;
   height: auto;
-  position: relative;
-  bottom: 10px;
   position: fixed;
   top: 20px;
   left: 35px;
@@ -246,9 +244,10 @@ padding-left: 25px;
   font-size: 45px;
 }
   
-.demo-headings{
-  text-align: center; 
-
+.demo-headings{ 
+  width: 90%;
+  margin: auto;
+  text-align: center;
 }
 
 #demo-section{
@@ -280,21 +279,21 @@ padding-left: 25px;
 }
   
 textarea.form-control {
-  margin-top: 25px;
-  margin-bottom: 25px;
+  margin-top: 15px;
+  margin-bottom: 10px;
   height: 250px;
   resize: none;
 }
   
-.submit{
-  position: relative;
-  right: 15px;
+.summarise-btn{
   font-size: 1.2em;
   float: right;
   width: 150px;
   background-color: #15b327;
   color: #fff;
   border: none;
+  margin-top: 20px;
+  margin-bottom: 15px;
 }
 
 .number-box{

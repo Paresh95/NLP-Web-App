@@ -67,7 +67,8 @@
             </div>
 
             <textarea class="form-control demo-text-input" name="summary text" maxlength="4000" placeholder="Enter Your Text - works best for paragraphs and short articles">{{summary_text}}</textarea>
-            <span id="characters" style="color:#888;"></span><span style="color:#888;">/ 4000 characters used</span>
+            <span class="characters" style="color:#888;"></span><span style="color:#888;">/ 4000 characters used</span>
+            <button type="submit" class="btn btn-default summarise-btn"><b>SUMMARISE</b></button>
             
           </div>
 
@@ -79,10 +80,6 @@
 
             <textarea class="form-control" name="summarised text" placeholder="Summarised text will be here">{{summarised_text}}</textarea>
           
-          </div>
-
-          <div>
-            <button type="submit" class="btn btn-default submit"><b>SUMMARISE</b></button>
           </div>
 
         </form>
