@@ -1,6 +1,9 @@
 
--f https://download.pytorch.org/whl/cpu/torch-1.7.0%2Bcpu-cp36-cp36m-linux_x86_64.whl
-torch==1.7.0+cpu
+
+
+torch==1.7.0+cpu -f https://download.pytorch.org/whl/cpu/torch-1.7.0%2Bcpu-cp36-cp36m-linux_x86_64.whl
+
+https://download.pytorch.org/whl/cpu/torch-1.1.0-cp37-cp37m-linux_x86_64.whl
 
 textstat==0.7.0
 SimpleText==1.0.3
