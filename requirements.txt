@@ -4,6 +4,7 @@
 --find-links https://download.pytorch.org/whl/torch_stable.html
 torch==1.7.0+cpu
 transformers==4.1.1
+gensim==3.8.3
 
 textstat==0.7.0
 SimpleText==1.0.3

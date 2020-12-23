@@ -5,30 +5,18 @@ from SimpleText.preprocessor import lowercase, strip_accents, strip_punctuation,
 
 
 
-from transformers import T5ForConditionalGeneration, T5Tokenizer
+from gensim.summarization.summarizer import summarize
 
 
 def predict_summariser(text):
-    # initialize the model architecture and weights
-    model = T5ForConditionalGeneration.from_pretrained("t5-small")
-    
-    # initialize the model tokenizer
-    tokenizer = T5Tokenizer.from_pretrained("t5-small")
+    return summarize(text, ratio=0.3, word_count=None, split=False)
 
-    # encode the text into tensor of integers using the appropriate tokenizer
-    inputs = tokenizer.encode("summarize: " + text, return_tensors="pt", max_length=512, truncation=True)
+#from summarizer import Summarizer
+# def predict_summariser(text):
+#     model = Summarizer()
+#     result = model(text, ratio=1, min_length=90, max_length=200, algorithm='t5-small') 
 
-    # generate the summarization output
-    outputs = model.generate(
-        inputs, 
-        max_length=600, 
-        min_length=100, 
-        length_penalty=0.1, 
-        num_beams=4, 
-        early_stopping=False, 
-        do_sample=True)
-    
-    return tokenizer.decode(outputs[0])
+#     return result
 
 
 
