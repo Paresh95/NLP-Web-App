@@ -1,65 +1,38 @@
-#from transformers import pipeline
+from utils import get_reduced_text_perc, url_text_extractor
 import textstat
 from nrclex import NRCLex
 from SimpleText.preprocessor import lowercase, strip_accents, strip_punctuation, strip_url 
-
-
-
 from gensim.summarization.summarizer import summarize
+import validators
 
 
-def predict_summariser(text):
-    return summarize(text, ratio=0.3, word_count=None, split=False)
+def predict_summariser(summary_text, length):
+    """
+    Input
+    ----------
+    summary_text (string): Text to summarise or a URL to scrape the text from
+    length (string): A integar value specifying the % of text to summarised
 
-#from summarizer import Summarizer
-# def predict_summariser(text):
-#     model = Summarizer()
-#     result = model(text, ratio=1, min_length=90, max_length=200, algorithm='t5-small') 
+    Returns
+    ----------
+    Summarised text 
+    """
 
-#     return result
+    # get the % of text to be summarised
+    ratio = int(length)/100
 
+    # check if text input is a url, if so extract text else use text provided
+    valid = validators.url(summary_text)
 
-
-
-# def predict_summariser(text, min_words=20, max_words=650):
-# """
-# Input
-# ----------
-# text (string)
-# min_words (int): The minimum number of words to use for the summary
-# max_words (int): The maximum number of words to use for the summary
-
-
-# Returns
-# ----------
-# Summarised text
-# """
-
-# # if max_words exceeds words in text make the max_words = no. of words in the text
-# if max_words > len(text.split()):
-#     max_words = len(text.split())
-
-# # Note that "bart-large-cnn" is the default model for the summarization pipeline
-# summarizer = pipeline("summarization")
-# summarised_sentances = summarizer(text, min_length=min_words, max_length=max_words, do_sample=False, early_stopping=False)[0]['summary_text']
-
-# # The above can output incomplete sentances, the below removes uncomplete sentances e.g. "I like. Hi" becomes "I like.""
-# return summarised_sentances[ :summarised_sentances.rindex(".") + 1]
+    if valid is True:
+        summary_text = url_text_extractor(summary_text)
+    else:
+        pass
     
+    summarised_text = summarize(summary_text, ratio=ratio, word_count=None, split=False)
+    reduced_perc = get_reduced_text_perc(summary_text, summarised_text)
 
-# def predict_sentiment(text):
-#     """
-#     Input
-#     ----------
-#     text(string)
-
-#     Returns
-#     ----------
-#     JSON object of sentiment (label) and sentiment score (score)
-#     """
-
-#     sentiment = pipeline('sentiment-analysis')
-#     return sentiment(text)[0]
+    return summarised_text, summary_text, reduced_perc
 
 
 def flesch_reading_score(text):

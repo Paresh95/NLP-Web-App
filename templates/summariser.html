@@ -15,6 +15,9 @@
   <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
+  <!-- Font Awesome -->
+  <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+
   <!-- My styles -->
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/mystyles.css') }}">
 
@@ -22,28 +25,28 @@
 
 <body>
 
-  <!-- Coloured demo section -->
+  <!-- Nav Bar -->
+  <header>
+    <nav>
+      <input id="nav-toggle" type="checkbox">
+
+      <a href="/"><img class="main-icon" src="{{ url_for('static', filename='images/home2-icon-green.png') }}" /></a>
+
+      <ul class="links">
+        <li><a class="nav-heading" href="/about">About</a></li>
+        <li><a class="nav-heading" href="/summariser">Text Summariser</a></li>
+        <li><a class="nav-heading" href="/sentiment">Sentiment Analysis</a></li>
+      </ul>
+      <label for="nav-toggle" class="icon-burger">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </label>
+    </nav>
+  </header>
+
+  <!-- demo section -->
   <section id="demo-section">
-
-    <!-- Nav Bar -->
-    <header>
-      <nav>
-        <input id="nav-toggle" type="checkbox">
-
-        <a href="/"><img class="main-icon" src="{{ url_for('static', filename='images/home2-icon-green.png') }}" /></a>
-
-        <ul class="links">
-          <li><a class="nav-heading" href="/about">About</a></li>
-          <li><a class="nav-heading" href="/summariser">Text Summariser</a></li>
-          <li><a class="nav-heading" href="/sentiment">Sentiment Analysis</a></li>
-        </ul>
-        <label for="nav-toggle" class="icon-burger">
-          <div class="line"></div>
-          <div class="line"></div>
-          <div class="line"></div>
-        </label>
-      </nav>
-    </header>
 
     <!-- Summariser -->
     <div class="demo-headings">
@@ -58,16 +61,13 @@
         <form method="POST">
           <div class="col-md-6 div-input-text-box">
 
-            <div class="text-label">
-              <label class="demo-helper-text"> Summarised text length: </label>
-              <input class="number-box" type="text" name="min words" placeholder="20" value="{{min_words}}">
-              <label class="demo-helper-text"> to </label>
-              <input class="number-box" type="text" name="max words" placeholder="650" value="{{max_words}}">
-              <label class="demo-helper-text"> words </label>
+            <div class="slidecontainer">
+              <label class="slider-text">Summary length ~<span id="result">{{default_slider_value}}</span>%</label>
+              <input class="slider" name="slider-value" id="myRange" type="range" min="10" max="90" value="{{default_slider_value}}" step="10" oninput="change();">             
             </div>
-
-            <textarea class="form-control demo-text-input" name="summary text" maxlength="4000" placeholder="Enter Your Text - works best for paragraphs and short articles">{{summary_text}}</textarea>
-            <span class="characters" style="color:#888;"></span><span style="color:#888;">/ 4000 characters used</span>
+          
+            <textarea class="form-control demo-text-input" name="summary text" maxlength="4000" placeholder="Enter your text or website URL (works best for paragraphs and short articles)">{{summary_text}}</textarea>
+            <span class="characters" style="color:#888;">0</span><span style="color:#888;"> characters used</span>
             <button type="submit" class="btn btn-default summarise-btn"><b>SUMMARISE</b></button>
             
           </div>
@@ -90,10 +90,46 @@
     
   </section>
 
-  <!--Animate loader off screen-->
-  <div class='spinner-wrapper'>
-    <div class="spinner"></div>
-  </div>
+
+
+
+<!-- Model explaination section -->
+  <section class="section-model-explaination">
+    <div>
+      <h1>How does text summarisation work?</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+    <div>
+      <h1>How does text summarisation work?</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+  </section>
+
+
+
+  <!-- Footer -->
+  <section class="section-footer">
+    <footer>
+      <div class="container-fluid">
+        <a class="a-social-icon" href="https://www.linkedin.com/in/pareshsharma1"><i class="social-icon fab fa-linkedin"></i></a>
+        <a class="a-social-icon" href="https://github.com/Paresh95"><i class="social-icon fab fa-github"></i></a>
+        <p>© Copyright 2020 by Paresh Sharma</p>
+      </div>
+    </footer>
+  </section>
+  
+
+
+
+
+
+  <!--Animated loader section-->
+  <section>
+    <div class='spinner-wrapper'>
+      <div class="spinner"></div>
+    </div>
+  </section>
+  
 
   <!-- Jquery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
@@ -108,6 +144,7 @@
   <!-- my custom scripts -->
   <script src="{{ url_for('static', filename='js/pageLoad.js') }}"></script>
   <script src="{{ url_for('static', filename='js/navHover.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/rangeSlider.js') }}"></script>
   <script src="{{ url_for('static', filename='js/characterCount.js') }}"></script>
 
 </body>

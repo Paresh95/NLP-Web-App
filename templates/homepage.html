@@ -46,62 +46,60 @@
     </nav>
   </header>
 
-<!-- Headings and Icons Div -->
-  <div class="container-fluid">
+    <!-- Headings and Icons Div -->
+    <div class="container-fluid">
 
-    <!-- Headings Div -->
-    <div class="row div-homepage-main">
-      <div class="col-lg-7 div-homepage-headings">
-        <h1 class="homepage-h1"><strong>Natural Language Processing with Paresh</strong></h1>
-        <h2 class="homepage-h2">Use techniques like...
-          <span class="txt-rotate" data-period="1000" data-rotate='[ "text summarisation.", "sentiment analysis."]'></span>
-        </h2>
-      </div>
+      <!-- Headings Div -->
+      <div class="row div-homepage-main">
+        <div class="col-lg-7 div-homepage-headings">
+          <h1 class="homepage-h1"><strong>Natural Language Processing with Paresh</strong></h1>
+          <h2 class="homepage-h2">Use techniques like...
+            <span class="txt-rotate" data-period="1000" data-rotate='[ "text summarisation.", "sentiment analysis."]'></span>
+          </h2>
+        </div>
 
-      <!-- Icons Div -->
-      <div class="col-lg-5 div-homepage-right">
+        <!-- Icons Div -->
+        <div class="col-lg-5 div-homepage-right">
+          
+          <!-- Icons Text Data Div -->
+          <div class="div-text-data">
+            <img class="other-icon" src="{{ url_for('static', filename='images/newspaper-icon-green.png') }}" />
+            <img class="other-icon" src="{{ url_for('static', filename='images/book-icon-green.png') }}" />
+            <img class="other-icon" src="{{ url_for('static', filename='images/twitter-icon-green.png') }}" />
+            <p>Text data</p>
+            <p class="arrow-paragraph">&#8595;</p>
+            <img class="other-icon" src="{{ url_for('static', filename='images/AI-icon-green.png') }}" />
+            <p>Machine learning</p>
+            <p class="arrow-paragraph">&#8595;</p>
+          </div>
+
         
-        <!-- Icons Text Data Div -->
-        <div class="div-text-data">
-          <img class="other-icon" src="{{ url_for('static', filename='images/newspaper-icon-green.png') }}" />
-          <img class="other-icon" src="{{ url_for('static', filename='images/book-icon-green.png') }}" />
-          <img class="other-icon" src="{{ url_for('static', filename='images/twitter-icon-green.png') }}" />
-          <p>Text data</p>
-          <p class="arrow-paragraph">&#8595;</p>
-          <img class="other-icon" src="{{ url_for('static', filename='images/AI-icon-green.png') }}" />
-          <p>Machine learning</p>
-          <p class="arrow-paragraph">&#8595;</p>
-        </div>
 
-       
+          <!-- Icons NLP applications Div -->
+          <div class="row div-homepage-right-small-outer">
 
-        <!-- Icons NLP applications Div -->
-        <div class="row div-homepage-right-small-outer">
+            <div class="col-s-2.5 div-homepage-right-small-inner">
+              <a class="icon-links" href="/summariser">
+                <img class="other-icon" src="{{ url_for('static', filename='images/text-icon-green.png') }}" />
+                <p class="nlp-icon-text">Text summarisation</p>
+              </a>
+            </div>
+            <div class="col-s-2.5 div-homepage-right-small-inner">
+              <a class="icon-links" href="/sentiment">
+                <img class="sentiment-icon other-icon" src="{{ url_for('static', filename='images/sentiment-icon-green.png') }}" />
+                <p class="nlp-icon-text">Sentiment analysis</p>
+              </a>
+            </div>
 
-          <div class="col-s-2.5 div-homepage-right-small-inner">
-            <a class="icon-links" href="/summariser">
-              <img class="other-icon" src="{{ url_for('static', filename='images/text-icon-green.png') }}" />
-              <p class="nlp-icon-text">Text summarisation</p>
-            </a>
-          </div>
-          <div class="col-s-2.5 div-homepage-right-small-inner">
-            <a class="icon-links" href="/sentiment">
-              <img class="sentiment-icon other-icon" src="{{ url_for('static', filename='images/sentiment-icon-green.png') }}" />
-              <p class="nlp-icon-text">Sentiment analysis</p>
-            </a>
           </div>
 
         </div>
-
 
       </div>
-
 
     </div>
 
-  </div>
-
-  </div>
+    </div>
 
   <!-- My custom scripts -->
   <script src="{{ url_for('static', filename='js/animateTextHomepage.js') }}"></script>

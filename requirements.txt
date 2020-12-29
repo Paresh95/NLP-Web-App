@@ -1,11 +1,10 @@
+#--find-links https://download.pytorch.org/whl/torch_stable.html
+#torch==1.7.0+cpu
+#transformers==4.1.1
 
-
-
---find-links https://download.pytorch.org/whl/torch_stable.html
-torch==1.7.0+cpu
-transformers==4.1.1
 gensim==3.8.3
-
+newspaper3k==0.2.8
+validators==0.18.2
 textstat==0.7.0
 SimpleText==1.0.3
 NRCLex==3.0.0

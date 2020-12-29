@@ -3,5 +3,5 @@ $('.demo-text-input').keydown(updateCount);
 
 function updateCount() {
 var cs = [$(this).val().length];
-$('#characters').text(cs);
+$('.characters').text(cs);
 }
