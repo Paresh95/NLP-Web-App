@@ -16,7 +16,7 @@ def summariser():
 
 @app.route("/summariser", methods=['POST'])
 def home2():
-    summary_text = """{}""".format(request.form['summary text'])
+    summary_text = """{}""".format(request.form['summary-text'])
     slider_value = request.form["slider-value"]
 
     summarised_text, summary_text, reduced_perc = predict_summariser(summary_text, length=slider_value)

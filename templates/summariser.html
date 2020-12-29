@@ -66,7 +66,7 @@
               <input class="slider" name="slider-value" id="myRange" type="range" min="10" max="90" value="{{default_slider_value}}" step="10" oninput="change();">             
             </div>
           
-            <textarea class="form-control demo-text-input" name="summary text" maxlength="4000" placeholder="Enter your text or website URL (works best for paragraphs and short articles)">{{summary_text}}</textarea>
+            <textarea class="form-control demo-text-input" name="summary-text" placeholder="Enter your text (works best for paragraphs and short articles) or website URL (doesn't work well for BBC articles, but should work for most other news outlets) ">{{summary_text}}</textarea>
             <span class="characters" style="color:#888;">0</span><span style="color:#888;"> characters used</span>
             <button type="submit" class="btn btn-default summarise-btn"><b>SUMMARISE</b></button>
             
@@ -90,22 +90,94 @@
     
   </section>
 
-
-
-
 <!-- Model explaination section -->
   <section class="section-model-explaination">
-    <div>
-      <h1>How does text summarisation work?</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <div class="container div-model-explaination">
+      <div class="div-paragraph-model-explaination">
+        <h2 class="extra-bold">What is automatic text summarisation?</h1>
+        <p>Automatic text summarisation is a machine learning technique to produce summaries from long text. Real world applications include summarising news articles/reviews/emails/search engine results and checking the key points in long text.</p>
+      </div>
+      <div class="div-paragraph-model-explaination">
+        <h2 class="extra-bold">Methods for automatic text summarisation</h2>
+        <p>The overwhelming volume of information in society has led to the desire of many researchers to develop approaches to automatically summarise text into meaningful information.</p>
+        <p>There are two main approaches – extractive and abstractive summarisation.</p>
+        <p><strong class="extra-bold">Extractive</strong> summarisation extracts the most important key-phrases/sentences from text and combines them to produce a summary. <strong class="extra-bold">Abstractive</strong> summarisation paraphrases text to produce a summary.</p>
+        <p>To illustrate the difference:</p>
+        <p><strong class="extra-bold">Original text</strong> (from Wikipedia) – “The Japanese macaque (Macaca fuscata), also known as the snow monkey, is a terrestrial Old World monkey species that is native to Japan. They get their name "snow monkey" because some live in areas where snow covers the ground for months each year – no other non-human primate is more northern-living, nor lives in a colder climate. Individuals have brownish grey fur, pinkish-red faces, and short tails. Two subspecies are known.”</p>
+        <p><strong class="extra-bold">Extractive summary</strong> - The Japanese macaque (Macaca fuscata), also known as the snow monkey, is a terrestrial Old World monkey species that is native to Japan. Individuals have brownish grey fur, pinkish-red faces, and short tails.</p>
+        <p><strong class="extra-bold">Abstractive summary</strong> - The Japanese macaque (Macaca fuscata) is a monkey species native to Japan which has brownish grey fur, pinkish-red faces, and short tails.</p>
+        <p>As you can see, both methods work well, but abstractive summarisation is closer to mimicking human summarisation. This is because it uses more complex models which can better capture the nuances of natural language. That said, there are several downsides of models that use abstractive summarisation 1) long training time, 2) large storage requirement and 3) long text summarisation time. </p>
+      </div>
+      <div class="div-paragraph-model-explaination">
+        <h2 class="extra-bold">Extractive and abstractive models</h2>
+        <p>There are several different models which can be used for extractive and abstractive summarisation. Popular extractive models include: <a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.21.3248&rep=rep1&type=pdf">Word Frequency</a>, <a href="https://www.sciencedirect.com/science/article/abs/pii/S030645730800068X">Non-Negative Matrix Factorisation</a>, <a href="https://dl.acm.org/doi/10.1145/383952.383955">Latent Semantic Indexing</a> and <a href="https://web.eecs.umich.edu/~mihalcea/papers/mihalcea.emnlp04.pdf">TextRank</a>. Popular abstractive models include: <a href="https://arxiv.org/abs/1810.04805">BERT</a>, <a href="https://arxiv.org/pdf/1910.10683.pdf">T5</a>, <a href="https://arxiv.org/abs/1906.08237">XLNet</a>, <a href="https://arxiv.org/abs/1907.11692">RoBERTa</a>, <a href="https://arxiv.org/abs/1909.11942v1">ALBERT</a> and <a href="https://arxiv.org/abs/2005.14165v2">GPT-3</a>.</p>
+        <p>For my text summariser, I originally planned to implement an abstractive model. Unfortunately, there were a few of constraints which made this impractical and infeasible. I have eluded to some of the constraints with abstractive models in the previous section (for more detail see section below: Practical implementation problems with abstractive models).</p>
+        <p>Resultantly, I used the extractive model <strong class="extra-bold">TextRank</strong>.</p>
+      </div>
+      <div class="div-paragraph-model-explaination">
+        <h2 class="extra-bold">How does TextRank work?</h2>
+        <p>TextRank ranks sentences in text by importance and outputs the most important sentences as the summary. Importance is determined by a sentence’s similarity to other sentences. I will explain the algorithm step by step below and include a simplified example.</p>
+        <p>Given some text:</p>
+        <ol>
+          <li>Split the text into individual sentences.</li>
+          <li>
+            <p>Find the word embedding (vector representation) for each sentence.</p>
+            <p>Word embedding describes a technique that maps words to numbers in an N-dimensional vector space.</p>
+            <p>Figure 1 represents a 3-demensional vector space. Each word has a 3-dimensional vector representation e.g. “helicopter” is represented by (0, 2, 4). The distance between vectors represents how similar the words are. A smaller distance indicates words with similar meaning. There are a variety of methods to calculate this similarity score between two vectors - one of the most popular methods is the cosine distance.</p>
+            <p>In a similar fashion, sentences can also be represented in an N-dimensional vector space. Sentences with similar meanings are mapped to a similar vector space and similarity scores can be computed.</p>
+            <p>The example provided is a simplification. In practice, word embeddings map most of the words in the English dictionary to hundreds of dimensions. I will not go into how word embeddings are calculated, but if you are interested please click <a href="https://arxiv.org/pdf/1310.4546.pdf">here</a>.</p>
+            <div class="container div-model-explaination-image">
+              <figure>
+                <a href="/https://corpling.hypotheses.org/495"><img class="model-explaination-image" src="{{ url_for('static', filename='images/word-embeddings-image.jpg') }}" /></a>
+                <figcaption class="figcaption-model-explaination-image"><strong class="extra-bold">Figure 1. Word embeddings in a 3-dimensional vector space.</strong> [Reference: Guillaume Desagulier, "Word embeddings: the (very) basics," in Around the word, 25/04/2018]</figcaption>
+            </figure>
+            </div>
+          </li>
+          <li>Calculate the vector similarity scores between sentences and store in a <a href="https://www.researchgate.net/figure/Example-of-similarity-matrix_fig3_315628119">similarity matrix</a>. This records the similarity between all of the sentence.</li>
+          <li>
+            The similarity matrix is converted into a network graph (see Figure 2), with sentences as vertices (circles) and similarity scores as edges (connections between circles).
+            <div class="container div-model-explaination-image">
+              <figure>
+                <a href="https://www.researchgate.net/figure/Graph-of-sentence-similarities-built-on-a-sample-text-Scores-reflecting-sentence_fig1_228340005"><img class="model-explaination-image" src="https://www.researchgate.net/profile/Paul_Tarau/publication/228340005/figure/fig1/AS:650513741774852@1532105970144/Graph-of-sentence-similarities-built-on-a-sample-text-Scores-reflecting-sentence.png" alt="Graph of sentence similarities built on a sample text. Scores reflecting sentence importance are shown in brackets next to each sentence."/></a>
+                <figcaption class="figcaption-model-explaination-image"><strong class="extra-bold">Figure 2. Network graph of sentence similarities. Scores reflecting sentence importance are shown in brackets next to each sentence. </strong> [Reference: A language independent algorithm for single and multiple document summarization - Scientific Figure on ResearchGate. ]</figcaption>
+            </figure>
+            </div>
+          </li>
+          <li>The PageRank algorithm is used to calculate the sentence rank. Sentences will be ranked higher if they are more similar to other sentences. I won’t go into the specifies of the PageRank algorithm, but if you’re interested click <a href="https://www.youtube.com/watch?v=qtLk2x59Va8&ab_channel=RSREETech-NLP%2FAI%2FMLsimplified">here</a>. </li>
+          <li>The top X ranked sentences are output as the text summary.</li>
+        </ol>
+        <p><strong class="extra-bold">Note:</strong> The algorithm I am using is actually a variation of the TextRank algorithm. The steps are the same, but the similarity score is calculated via the BM25 algorithm rather than cosine distance (as it improves the text summarisation). </p>
+      </div>
+      <div class="div-paragraph-model-explaination">
+        <h2 class="extra-bold">Practical implementation problems with abstractive models (Optional)</h2>
+        <p>I originally planned to implement the BERT abstractive model instead of the TextRank extractive model.</p>
+        <p>BERT is a state-of-the-art machine learning model for text summarisation. The model works best when trained on a huge text-based dataset to learn the contextual relationships between words.</p>
+        <p>I really wanted to showcase BERT in this web application, but unfortunately, I ran into a few problems synonymous with abstractive models:</p>
+        <ol>
+          <li>
+            <p>Long training time</p>  
+            <p>Training a model of this nature generally requires multiple high-performance GPUs in the cloud. This can be very expensive. Furthermore, this is an energy intensive process which leads to environmental costs. To limit these problems machine learning researchers have open-sourced pre-trained models such as BERT so others do not need to burden the brunt of the economic or environmental costs. Therefore, I was able to overcome this issue by using a pre-trained BERT model.</p>
+          </li>
+          <li>
+            <p>Large storage requirement</p>
+            <p>The pre-trained BERT model was trained on the 800GB+ Colossal Clean Crawled Corpus. This dataset consists of raw web page data, extracted metadata and text extractions from the web. BERT uses this to learn the contextual relationships between words in text and stores that information as “pre-trained weights” also sometimes referred to as “parameters”. We can download these parameters to use BERT. Depending on which version of BERT you are using the number of parameters can range from 30 million (BERT small) to 11 billion (BERT large). The storage space for small and large BERT are 231.1MB and 42.1GB respectively.</p>
+            <p>I am hosting my web application via a service called Heroku. The lite version of Heroku offers 512MB RAM storage space. As you may have guessed BERT large is way too big to store on my lite account! Of course, I could have upgraded my lite Heroku instance to increase the RAM, but that could get expensive</p>
+            <p>That said, I managed to overcome this issue by using BERT small.</p>
+          </li>
+          <li>
+            <p>Long text summarisation time</p>
+            <p>Heroku and other similar platforms tend to have a server response timeout limit to maintain good customer service. This is usually 30 seconds, meaning that the web application crashes after this limit is reached. BERT small takes about 40 seconds to 1 minute to summarise text (as it uses 30 million parameters). As you may have guessed, my server crashed. I have a couple of ideas for workarounds, but they’re quite time consuming. Given that this is a side project I opted to sub-out BERT and sub-in TextRank. TextRank (as is the case for other extractive methods) is a much smaller model to store and has no pre-trained weights, thus the text summarisation is much faster. </p>
+            <p>If you’re interested in implementing BERT or just want to have a play feel free to reach out and I can point you in the right direction!</p>
+            <div class="container div-model-explaination-image">
+              <figure>
+                <a><img class="model-explaination-image" src="{{ url_for('static', filename='images/textrank-meme.png') }}" /></a>
+            </figure>
+            </div>
+          </li>
+        </ol>
+      </div>
     </div>
-    <div>
-      <h1>How does text summarisation work?</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    </div>
-  </section>
-
-
+    </section>
 
   <!-- Footer -->
   <section class="section-footer">
@@ -117,11 +189,6 @@
       </div>
     </footer>
   </section>
-  
-
-
-
-
 
   <!--Animated loader section-->
   <section>
@@ -130,7 +197,6 @@
     </div>
   </section>
   
-
   <!-- Jquery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
   <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
