@@ -36,6 +36,7 @@
         <li><a class="nav-heading" href="/about">About</a></li>
         <li><a class="nav-heading" href="/summariser">Text Summariser</a></li>
         <li><a class="nav-heading" href="/sentiment">Sentiment Analysis</a></li>
+        <li><a class="nav-heading" href="/miscellaneous">Miscellaneous</a></li>
       </ul>
       <label for="nav-toggle" class="icon-burger">
         <div class="line"></div>
@@ -59,14 +60,14 @@
       <div class="container">
 
         <form method="POST">
-          <div class="col-md-6 div-input-text-box">
+          <div class="col-md-6">
 
             <div class="slidecontainer">
               <label class="slider-text">Summary length ~<span id="result">{{default_slider_value}}</span>%</label>
               <input class="slider" name="slider-value" id="myRange" type="range" min="10" max="90" value="{{default_slider_value}}" step="10" oninput="change();">             
             </div>
           
-            <textarea class="form-control demo-text-input" name="summary-text" placeholder="Enter your text (works best for paragraphs and short articles) or website URL (doesn't work well for BBC articles, but should work for most other news outlets) ">{{summary_text}}</textarea>
+            <textarea class="form-control demo-text-input" name="input-summary-text" placeholder="Enter your text (works best for paragraphs and short articles) or website URL (the URL doesn't work well for BBC articles, but should work for most other news outlets) ">{{summary_text}}</textarea>
             <span class="characters" style="color:#888;">0</span><span style="color:#888;"> characters used</span>
             <button type="submit" class="btn btn-default summarise-btn"><b>SUMMARISE</b></button>
             
@@ -95,7 +96,7 @@
     <div class="container div-model-explaination">
       <div class="div-paragraph-model-explaination">
         <h2 class="extra-bold">What is automatic text summarisation?</h1>
-        <p>Automatic text summarisation is a machine learning technique to produce summaries from long text. Real world applications include summarising news articles/reviews/emails/search engine results and checking the key points in long text.</p>
+        <p>Automatic text summarisation is a natural language processing (NLP) technique to produce summaries from long text. Real world applications include summarising news articles/reviews/emails/search engine results and checking the key points in long text.</p>
       </div>
       <div class="div-paragraph-model-explaination">
         <h2 class="extra-bold">Methods for automatic text summarisation</h2>
@@ -128,7 +129,7 @@
             <p>The example provided is a simplification. In practice, word embeddings map most of the words in the English dictionary to hundreds of dimensions. I will not go into how word embeddings are calculated, but if you are interested please click <a href="https://arxiv.org/pdf/1310.4546.pdf">here</a>.</p>
             <div class="container div-model-explaination-image">
               <figure>
-                <a href="/https://corpling.hypotheses.org/495"><img class="model-explaination-image" src="{{ url_for('static', filename='images/word-embeddings-image.jpg') }}" /></a>
+                <a href="https://corpling.hypotheses.org/495"><img class="model-explaination-image" src="{{ url_for('static', filename='images/word-embeddings-image.jpg') }}" /></a>
                 <figcaption class="figcaption-model-explaination-image"><strong class="extra-bold">Figure 1. Word embeddings in a 3-dimensional vector space.</strong> [Reference: Guillaume Desagulier, "Word embeddings: the (very) basics," in Around the word, 25/04/2018]</figcaption>
             </figure>
             </div>

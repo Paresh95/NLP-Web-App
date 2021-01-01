@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <title>Miscellaneous</title>
+
+  <!--Responsive web layout-->
+  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Google fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap -->
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+
+  <!-- My styles -->
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/mystyles.css') }}">
+
+</head>
+
+<body>
+
+  <!-- Nav Bar -->
+  <header>
+    <nav>
+      <input id="nav-toggle" type="checkbox">
+
+      <a href="/"><img class="main-icon" src="{{ url_for('static', filename='images/home2-icon-green.png') }}" /></a>
+
+      <ul class="links">
+        <li><a class="nav-heading" href="/about">About</a></li>
+        <li><a class="nav-heading" href="/summariser">Text Summariser</a></li>
+        <li><a class="nav-heading" href="/sentiment">Sentiment Analysis</a></li>
+        <li><a class="nav-heading" href="/miscellaneous">Miscellaneous</a></li>
+      </ul>
+      <label for="nav-toggle" class="icon-burger">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </label>
+    </nav>
+  </header>
+
+  <!-- demo section -->
+  <section id="demo-section">
+
+    <!-- Miscellaneous Analysis -->
+    <div class="demo-headings">
+      <h1 class="section-header">Extract <span class="hightlighted-heading-words">subjectivity</span> & <span class="hightlighted-heading-words"> readability</span> from text</h1>
+      <h3>Write and click <b>ANALYSE</b></h3>
+    </div>
+
+    <div class="div-demo div-demo-sentiment">
+
+      <div class="container">
+
+        <form method="POST">
+          <div class="container-fluid">
+          
+            <textarea class="form-control demo-text-input" name="input-miscellaneous-text" placeholder="Enter your text or website URL (the URL doesn't work well for BBC articles, but should work for most other news outlets) ">{{input_text}}</textarea>
+            <span class="characters" style="color:#888;">0</span><span style="color:#888;"> characters used</span>
+            <button type="submit" class="btn btn-default summarise-btn"><b>ANALYSE</b></button>
+            
+          </div>
+        </form>
+
+        <div class="container col-md-9">
+          <h4>{{subjectivity}}</h4>
+          <h4>{{readability}}</h4>
+          <p>{{interpretation}}</p>
+        </div>
+
+      </div>
+
+    </div>
+    
+  </section>
+
+<!-- Model explaination section -->
+  <section class="section-model-explaination">
+    <div class="container div-model-explaination">
+      <div class="div-paragraph-model-explaination">
+        <h2 class="extra-bold">What is automatic text summarisation?</h1>
+        <p>Automatic text summarisation is a machine learning technique to produce summaries from long text. Real world applications include summarising news articles/reviews/emails/search engine results and checking the key points in long text.</p>
+      </div>
+    </div>
+    </section>
+
+  <!-- Footer -->
+  <section class="section-footer">
+    <footer>
+      <div class="container-fluid">
+        <a class="a-social-icon" href="https://www.linkedin.com/in/pareshsharma1"><i class="social-icon fab fa-linkedin"></i></a>
+        <a class="a-social-icon" href="https://github.com/Paresh95"><i class="social-icon fab fa-github"></i></a>
+        <p>© Copyright 2020 by Paresh Sharma</p>
+      </div>
+    </footer>
+  </section>
+
+  <!--Animated loader section-->
+  <section>
+    <div class='spinner-wrapper'>
+      <div class="spinner"></div>
+    </div>
+  </section>
+  
+  <!-- Jquery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+  <!-- modernizr -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+
+  <!-- bootstrap -->
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+  
+  <!-- my custom scripts -->
+  <script src="{{ url_for('static', filename='js/pageLoad.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/navHover.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/rangeSlider.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/characterCount.js') }}"></script>
+
+</body>
+
+</html>

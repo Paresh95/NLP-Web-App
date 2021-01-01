@@ -6,8 +6,7 @@ gensim==3.8.3
 newspaper3k==0.2.8
 validators==0.18.2
 textstat==0.7.0
-SimpleText==1.0.3
-NRCLex==3.0.0
+textblob==0.15.3
 Flask==1.1.2
 gunicorn==20.0.4
 

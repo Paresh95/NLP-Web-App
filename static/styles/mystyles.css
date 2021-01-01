@@ -148,6 +148,7 @@ body.homepage {
 .div-homepage-main{
   position: relative;
   top: 150px;
+  padding-bottom: 50px;
 }
 
 .div-homepage-right{
@@ -233,7 +234,7 @@ padding-left: 25px;
   margin: auto;
 }
    
-/*Demo pages styles*/
+/*Demo pages styles - mainly for summariser page*/
 
 .section-header{
   padding-top: 50px;
@@ -261,10 +262,7 @@ padding-left: 25px;
 
 .div-demo{
   padding-top: 40px;
-}
-
-.div-input-text-box{
-  padding-bottom: 30px;
+  padding-bottom: 50px;
 }
 
 .demo-helper-text{
@@ -310,7 +308,7 @@ textarea.form-control {
 }
 
 
-/* Slider on demo page*/
+/* Slider on summariser demo page*/
 
 .slidecontainer {
   width: 100%; /* Width of the outside container */
@@ -357,7 +355,68 @@ textarea.form-control {
 }
 
 
-/* Page loading spinner */
+/*Model explaination styles*/
+.section-model-explaination{
+  margin-top: 50px;
+  color: #000000;
+}
+
+.div-model-explaination{
+  text-align: left;
+  font-family: 'Montserrat', sans-serif !important;
+  font-size: 1.3em;
+}
+
+.div-paragraph-model-explaination{
+  margin-bottom: 50px;
+}
+
+.extra-bold{      
+  text-shadow: 0.5px 0 #000000;
+}
+
+.div-model-explaination-image{
+  text-align: center;
+  width: 80%;
+}
+
+.model-explaination-image{
+  width: 50%;
+  height: auto;
+  min-width: 150px;
+ }
+
+ .figcaption-model-explaination-image{
+  font-size: 0.8em !important;
+  margin-top: 20px;
+  margin-bottom: 20px;
+ }
+
+
+ /*Demo page footer styles*/
+.section-footer{
+  background-color: #222426;
+  color: #fff;
+  text-align: center;
+  font-size: 0.8em;
+}
+
+.a-social-icon{
+  color:inherit !important;
+}
+
+.social-icon {
+  width: 40px !important;
+  height: auto !important;
+  margin: 20px 10px;
+}
+
+.social-icon:hover{
+  color: #888;
+}
+
+
+/* Demo page loading spinner */
 .spinner-wrapper{
   width: 100%;
   height: 100%;
@@ -408,6 +467,12 @@ textarea.form-control {
 }
 
 
+/*sentiment page styles*/
+
+
+/*miscellaneous page styles*/
+
+
 /*Error pages styles*/
 .alert-custom{
   border: none;
@@ -421,42 +486,6 @@ textarea.form-control {
 
 
 
-/*Model explaination styles*/
-.section-model-explaination{
-  margin-top: 50px;
-  color: #000000;
-}
-
-.div-model-explaination{
-  text-align: left;
-  font-family: 'Montserrat', sans-serif !important;
-  font-size: 1.3em;
-}
-
-.div-paragraph-model-explaination{
-  margin-bottom: 50px;
-}
-
-.extra-bold{      
-  text-shadow: 0.5px 0 #000000;
-}
-
-.div-model-explaination-image{
-  text-align: center;
-  width: 80%;
-}
-
-.model-explaination-image{
-  width: 50%;
-  height: auto;
-  min-width: 150px;
- }
-
- .figcaption-model-explaination-image{
-  font-size: 0.8em !important;
-  margin-top: 20px;
-  margin-bottom: 20px;
- }
 
 
 
@@ -464,27 +493,8 @@ textarea.form-control {
 
 
 
-/*Footer styles*/
-.section-footer{
-  background-color: #222426;
-  color: #fff;
-  text-align: center;
-  font-size: 0.8em;
-}
 
-.a-social-icon{
-  color:inherit !important;
-}
 
-.social-icon {
-  width: 40px !important;
-  height: auto !important;
-  margin: 20px 10px;
-}
-
-.social-icon:hover{
-  color: #888;
-}
 
 
 

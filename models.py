@@ -1,16 +1,14 @@
-from utils import get_reduced_text_perc, url_text_extractor
-import textstat
-from nrclex import NRCLex
-from SimpleText.preprocessor import lowercase, strip_accents, strip_punctuation, strip_url 
+from utils import get_reduced_text_perc
 from gensim.summarization.summarizer import summarize
-import validators
+import textstat
+from textblob import TextBlob
 
 
 def predict_summariser(summary_text, length):
     """
     Input
     ----------
-    summary_text (string): Text to summarise or a URL to scrape the text from
+    summary_text (string): Text to summarise 
     length (string): A integar value specifying the % of text to summarised
 
     Returns
@@ -18,21 +16,53 @@ def predict_summariser(summary_text, length):
     Summarised text 
     """
 
-    # get the % of text to be summarised
-    ratio = int(length)/100
-
-    # check if text input is a url, if so extract text else use text provided
-    valid = validators.url(summary_text)
-
-    if valid is True:
-        summary_text = url_text_extractor(summary_text)
-    else:
-        pass
-    
+    ratio = int(length)/100 # gets the % of text to be summarised
     summarised_text = summarize(summary_text, ratio=ratio, word_count=None, split=False)
     reduced_perc = get_reduced_text_perc(summary_text, summarised_text)
 
-    return summarised_text, summary_text, reduced_perc
+    return summarised_text, reduced_perc
+
+
+def predict_sentiment(text):
+    """
+    Input
+    ----------
+    text(string)
+
+    Returns
+    ----------
+    The sentiment and sentiment score ranging from [-1,1] (integar)
+    """
+
+    TextBlob_object = TextBlob(text)
+    sentiment_score = round(TextBlob_object.sentiment.polarity, 2)
+    
+    if sentiment_score == 0:
+        output = "Neutral sentiment: " + str(sentiment_score)
+    elif sentiment_score > 0:
+        output = "Positive sentiment: " + str(sentiment_score)
+    else:
+        output = "Negative sentiment: " + str(sentiment_score)
+   
+    return output 
+
+
+def predict_subjectivity(text):
+    """
+    Input
+    ----------
+    text(string)
+
+    Returns
+    ----------
+    The subjectivity score ranging from [0,1] (integar)
+    """
+
+    TextBlob_object = TextBlob(text)
+    subjectivity_score = round(TextBlob_object.sentiment.subjectivity, 2)
+    output = "Subjectivity: " + str(subjectivity_score)
+    
+    return output
 
 
 def flesch_reading_score(text):
@@ -43,52 +73,14 @@ def flesch_reading_score(text):
 
     Returns
     ----------
-    A Flesch Reading Ease score (integar)
+    The Flesch Reading Ease score ranging from [0,100] (integar)
     """
+    
     # note this has to be completed before text preprocessing
-    return textstat.flesch_reading_ease(text)
+    readability_score = round(textstat.flesch_reading_ease(text), 2)
+
+    output = "Readability: " + str(readability_score)
+
+    return output
 
 
-def get_emotion_scores(text):
-
-    """
-    Input
-    ----------
-    text(string)
-
-    Returns
-    ----------
-    emotions_dictionary (list): Two items in the list: 1)  a dictionary of scores 
-                                for each emotions and 2) a dictionary of emotions
-                                and words from the text associated with the emotion
-    """
-
-    # preprocess the text 
-    text = lowercase(text) 
-    text = strip_accents(text)
-    text = strip_punctuation(text)
-    text = strip_url(text) 
-
-    # instantiate the text object 
-    text_object = NRCLex(text)
-
-    # get scores for: fear, anger, trust, surprise, sadness, disgust, joy, anticipation 
-    emotion_scores_dictionary = text_object.affect_frequencies
-    keys = ['fear', 'anger', 'trust', 'surprise', 'sadness', 'disgust', 'joy', 'anticipation']
-    filtered_emotion_scores_dictionary = dict((k, round(emotion_scores_dictionary[k], 4)) for k in keys if k in emotion_scores_dictionary)
-
-    # get a dictionary of the words corresponding to each emotion
-    words_emotions_dictionary = text_object.affect_dict
-
-    # inverse the keys and values in the dictionary so the keys are emotions and values are the words
-    emotions_words_dictionary = {}
-    for k,v in words_emotions_dictionary.items():
-        for x in v:
-            emotions_words_dictionary.setdefault(x,[]).append(k)
-
-    # get emotion/word association for: fear, anger, trust, surprise, sadness, disgust, joy, anticipation
-    filtered_emotions_words_dictionary = dict((k, emotions_words_dictionary[k]) for k in keys if k in emotions_words_dictionary)
-
-    emotions_output = [filtered_emotion_scores_dictionary, filtered_emotions_words_dictionary]
-
-    return emotions_output
