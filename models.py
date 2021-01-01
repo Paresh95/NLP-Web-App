@@ -40,7 +40,7 @@ def predict_sentiment(text):
     if sentiment_score == 0:
         output = "Neutral sentiment: " + str(sentiment_score)
     elif sentiment_score > 0:
-        output = "Positive sentiment: " + str(sentiment_score)
+        output = "Positive sentiment: +" + str(sentiment_score)
     else:
         output = "Negative sentiment: " + str(sentiment_score)
    
