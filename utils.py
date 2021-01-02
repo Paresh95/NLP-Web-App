@@ -40,6 +40,9 @@ def check_for_url(text):
     else:
         pass
 
+    # clean the text
+    text = text.replace('\n', ' ').replace('\r', '').replace('  ', ' ')
+
     return text
 
 

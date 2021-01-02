@@ -17,15 +17,20 @@ def home():
 def summariser():
     return render_template("summariser.html", default_slider_value=40) 
 
-
+    
 @app.route('/sentiment')
 def sentiment():
     return render_template("sentiment.html")
 
 
-@app.route('/miscellaneous')
-def miscellaneous():
-    return render_template("miscellaneous.html")
+@app.route('/subjectivity')
+def subjectivity():
+    return render_template("subjectivity.html")
+
+
+@app.route('/readability')
+def readability():
+    return render_template("readability.html")
 
 
 ### Pages after text input ###
@@ -49,26 +54,35 @@ def sentiment2():
     input_text = check_for_url(input_text) # check if text or url and web scrap if url
     
     sentiment = predict_sentiment(input_text)
-    interpretation = "*Interpretation - Sentiment ranges from 1 (extremely positive) to -1 \
-        (extremely negative)."
+    interpretation = "*Interpretation - Sentiment ranges from -1 \
+        (extremely negative) to 1 (extremely positive)."
 
     return render_template('sentiment.html', input_text=input_text, sentiment=sentiment, interpretation=interpretation)
 
 
-@app.route("/miscellaneous", methods=['POST'])
-def miscellaneous2():
-    input_text = """{}""".format(request.form['input-miscellaneous-text'])
-
+@app.route("/subjectivity", methods=['POST'])
+def subjectivity2():
+    input_text = """{}""".format(request.form['input-subjectivity-text'])
     input_text = check_for_url(input_text)
-
     subjectivity = predict_subjectivity(input_text)
+    interpretation = "*Interpretation - Subjectivity ranges from 0 (very objective)\
+        to 1 (very subjective)."
+
+    return render_template('subjectivity.html', input_text=input_text, \
+        subjectivity=subjectivity, interpretation=interpretation)
+
+
+@app.route("/readability", methods=['POST'])
+def readability2():
+    input_text = """{}""".format(request.form['input-readability-text'])
+    input_text = check_for_url(input_text)
     readability = flesch_reading_score(input_text)
+    interpretation = "*Interpretation - Readability ranges from 0 (very difficult to read)\
+            100 (very easy to read). For values outside of this range read the \
+                section below on Flesch Reading Ease."
 
-    interpretation = "*Interpretation - Subjectivity ranges from 1 (very subjective) to \
-            0 (very objective). Readability ranges from 100 (very easy to read) to 0 (very difficult to read)."
-
-    return render_template('miscellaneous.html', input_text=input_text, \
-        subjectivity=subjectivity, readability=readability, interpretation=interpretation)
+    return render_template('readability.html', input_text=input_text, \
+        readability=readability, interpretation=interpretation)
 
 
 ### Error handling ### 

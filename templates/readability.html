@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <title>Miscellaneous</title>
+  <title>Readability</title>
 
   <!--Responsive web layout-->
   <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -36,7 +36,8 @@
         <li><a class="nav-heading" href="/about">About</a></li>
         <li><a class="nav-heading" href="/summariser">Text Summariser</a></li>
         <li><a class="nav-heading" href="/sentiment">Sentiment Analysis</a></li>
-        <li><a class="nav-heading" href="/miscellaneous">Miscellaneous</a></li>
+        <li><a class="nav-heading" href="/subjectivity">Subjectivity Analysis</a></li>
+        <li><a class="nav-heading" href="/readability">Readability Analysis</a></li>
       </ul>
       <label for="nav-toggle" class="icon-burger">
         <div class="line"></div>
@@ -49,9 +50,9 @@
   <!-- demo section -->
   <section id="demo-section">
 
-    <!-- Miscellaneous Analysis -->
+    <!-- Readability Analysis -->
     <div class="demo-headings">
-      <h1 class="section-header">Extract <span class="hightlighted-heading-words">subjectivity</span> & <span class="hightlighted-heading-words"> readability</span> from text</h1>
+      <h1 class="section-header">Extract <span class="hightlighted-heading-words">readability</span> from text</h1>
       <h3>Write and click <b>ANALYSE</b></h3>
     </div>
 
@@ -62,7 +63,7 @@
         <form method="POST">
           <div class="container-fluid">
           
-            <textarea class="form-control demo-text-input" name="input-miscellaneous-text" placeholder="Enter your text or website URL (the URL doesn't work well for BBC articles, but should work for most other news outlets) ">{{input_text}}</textarea>
+            <textarea class="form-control demo-text-input" name="input-readability-text" placeholder="Enter your text or website URL (the URL doesn't work well for BBC articles, but should work for most other news outlets) ">{{input_text}}</textarea>
             <span class="characters" style="color:#888;">0</span><span style="color:#888;"> characters used</span>
             <button type="submit" class="btn btn-default summarise-btn"><b>ANALYSE</b></button>
             
@@ -70,7 +71,6 @@
         </form>
 
         <div class="container col-md-9">
-          <h4>{{subjectivity}}</h4>
           <h4>{{readability}}</h4>
           <p>{{interpretation}}</p>
         </div>
