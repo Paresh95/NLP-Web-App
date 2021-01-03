@@ -482,6 +482,10 @@ textarea.form-control {
   color: red !important;
 }
 
+.div-output-text{
+  margin-bottom: 10px !important;
+}
+
 /*miscellaneous page styles*/
 
 
