@@ -82,14 +82,67 @@
   </section>
 
 <!-- Model explaination section -->
-  <section class="section-model-explaination">
-    <div class="container div-model-explaination">
-      <div class="div-paragraph-model-explaination">
-        <h2 class="extra-bold">What is automatic text summarisation?</h1>
-        <p>Automatic text summarisation is a machine learning technique to produce summaries from long text. Real world applications include summarising news articles/reviews/emails/search engine results and checking the key points in long text.</p>
-      </div>
+<section class="section-model-explaination">
+  
+  <div class="container div-model-explaination">
+
+    <div class="div-paragraph-model-explaination">
+      <h2 class="extra-bold">What is sentiment analysis?</h2>
+      <p>Sentiment analysis is a natural language processing technique to determine whether text has positive (+1), negative (-1) or neutral sentiment (0). Popular real-world applications include monitoring sentiments in brands, customer feedback and emails. Here is a simple example to illustrate <span class="positive">positive</span>, <span class="neutral">neutral</span> and <span class="negative">negative</span> text: </p>
+      <p class="positive">“I love chocolate"</p>
+      <p class="neutral">“Chocolate is alright”</p>
+      <p class="negative">“Chocolate is awful”</p>
     </div>
-    </section>
+
+    <div class="div-paragraph-model-explaination">
+      <h2 class="extra-bold">Approaches to sentiment analysis</h2>
+      <p>There are two main approaches – lexicon-based and machine learning. </p>
+      <p><strong class="extra-bold">Lexicon-based</strong> approaches aim to build a collection of words associated with a particular sentiment orientation (positive, negative and neutral). Each word is given a polarity score. This lexicon is used to score the sentiment of text. Researchers have built a variety of sentiment lexicons such as <a href="https://github.com/cjhutto/vaderSentiment/blob/master/vaderSentiment/vader_lexicon.txt"> Valence Aware Dictionary and sEntiment Reasoner (VADER)</a> and <a href="https://github.com/sloria/TextBlob/blob/eb08c120d364e908646731d60b4e4c6c1712ff63/textblob/en/en-sentiment.xml">TextBlob</a>.</p>
+      <p><strong class="extra-bold">Machine learning </strong> approaches build algorithmic models which can classify sentiment in text. Models are trained on a large corpus of pre-labelled sentiment orientated text. Common models include: <a href=" https://arxiv.org/pdf/cs/0205070.pdf">Naives Bayes, Support Vector Machines</a> and <a href="https://arxiv.org/pdf/1512.01100.pdf">Long-Short Term Memory Networks</a>.</p>
+      <p>Machine learning approaches are more accurate as they better capture the indicators of sentiment in text. Unfortunately, they have several downsides 1) long training time, 2) large storage requirements and 3) long sentiment scoring time. This can make them difficult to use in a small web application like mine. I will not explain why as there is a similar discussion on the <a href="/summariser">Text Summarisation page</a> under the section “Practical implementation problems with abstractive models”.</p>
+      <p>Despite the superior performance of machine learning approaches, I employed the lexicon-based approach. Specifically, I used the TextBlob Lexicon. I chose this lexicon over other options as it performs well for formal text (vs text from social media etc) and is simple to implement. </p>
+    </div>
+
+    <div class="div-paragraph-model-explaination">
+      <h2 class="extra-bold">How do you build a sentiment lexicon and score the sentiment of text?</h2>
+      <ol>
+        <li class="extra-bold">Building a sentiment lexicon</li>
+        <p></p>
+        <p>A sentiment lexicon consists of hundreds/thousands of words associated with positive, negative and neutral sentiment. Each word has a polarity score (between -1 to 1) to indicate sentiment strength. For example, “good” may have the score 0.7 whilst “great” may have the score 0.8.</p>
+        <p>How are these words and scores obtained? There are several methods 1) computational linguistic experts manually score words, 2) machine learning algorithms assign scores to words by training on sentiment annotated text, or 3) they are estimated via word ontologies. Popular pre-defined word and score lists include: <a href="https://github.com/aesuli/SentiWordNet/blob/master/data/SentiWordNet_3.0.0.txt">SentiWordNet</a>, <a href="https://github.com/fnielsen/afinn/blob/master/afinn/data/AFINN-en-165.txt">AFINN</a> and <a href="https://pydigger.com/pypi/labMTsimple">labMT</a>.</p>
+        <li class="extra-bold">Scoring the sentiment of text</li>
+        <p></p>
+        <p>With a lexicon built, sentiment scores can be calculated for text. This may differ depending on implementation. Since I used TextBlob I will explain how this score is calculated.</p>
+        <p>TextBlob uses simple averaging along with other special case rules to express sentiment. Let’s break it down.</p>
+        <ol type="I">
+          <li class="extra-bold">The base case - simple averaging</li>
+          <p></p> 
+          <p>Assume the words “jail” and “good” have polarity scores -0.1 and 0.7 respectively. If all other words have a polarity score of 0, the sentence “My jail is good” will use the average polarity i.e. [-0.1 + 0.7]/2 = 0.3.</p>
+          <li class="extra-bold">Special cases - Negation, modifiers, 1 letter words and unknown words</li>
+          <p></p>
+          <p>If we change the sentence to “My jail is not good” the sentence turns negative. The word “not” <strong class="extra-bold">negates</strong> the positive sentiment of the word “good”. TextBlob recognises this and uses a negation multiplier of -0.5 to multiply the polarity of the word “good”. The sentence’s polarity is given by [-0.1 + (-0.5)*0.7]/2 = -0.225.</p>
+          <p>If we change the sentence to “My jail is very good” the sentence becomes more positive. The word “very” modifies the positive strength of the word “good”. TextBlob’s lexicon not only captures the polarity score, but also the intensity score. The intensity score determines if a word modifies the next word. TextBlob recognises “very” as a <strong class="extra-bold">modifier</strong> word and ignores it’s polarity score (0.2) and uses it’s intensity score (1.3) to multiply the following word. The sentence’s polarity is given by [-0.1 + (1.3*0.7)]/2 = 0.405. Interestingly, this same logic also applies for punctuation modifiers like exclamation marks (you can try this yourself above!).</p>
+          <p>If we change the sentence to “My jail is not very good” we have a <strong class="extra-bold">negation combining with a modifier</strong>. In this instance, the polarity of the word “good” is multiplied by -0.5 (for the negation) but now the inverse intensity (1/intensity) score is used. The sentence’s polarity is given by [-0.1 + (-0.5*(1/1.3)*0.7)]/2 = -0.185.</p>
+          <p>TextBlob <strong class="extra-bold">ignores 1 letter words and words not in the lexicon</strong>.</p>
+          <p></p>
+        </ol>
+      </ol>
+    </div>
+
+    <div class="div-paragraph-model-explaination">
+      <h2 class="extra-bold">Limitations of sentiment with lexicons</h2>
+      <p>Sentiment lexicons use individual words to determine sentiment and not the context. Thus, they cannot capture irony, humour and sarcasm. </p>
+        <div class="container div-model-explaination-image">
+          <figure>
+            <a><img class="model-explaination-image" src="{{ url_for('static', filename='images/sarcasm-meme.png') }}" /></a>
+        </figure>
+        </div>
+    </div>
+
+  </div>
+
+</section>
+
 
   <!-- Footer -->
   <section class="section-footer">

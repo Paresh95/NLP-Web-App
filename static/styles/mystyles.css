@@ -379,6 +379,7 @@ textarea.form-control {
 .div-model-explaination-image{
   text-align: center;
   width: 80%;
+  margin-top: 30px;
 }
 
 .model-explaination-image{
@@ -469,7 +470,17 @@ textarea.form-control {
 
 
 /*sentiment page styles*/
+.positive{
+  color: #15b327 !important;
+}
 
+.neutral{
+  color: orange !important;
+}
+
+.negative{
+  color: red !important;
+}
 
 /*miscellaneous page styles*/
 
