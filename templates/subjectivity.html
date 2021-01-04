@@ -90,6 +90,11 @@
       <h2 class="extra-bold">What is subjectivity analysis?</h2>
       <p>Subjectivity analysis is a natural language processing technique to determine the extent to which text is based on facts (objective) vs opinions (subjective). Facts are statements that can be proven right or wrong. Opinions are expressions of a person’s feelings that cannot be right or wrong.</p>
       <p>Real-world applications include improving answer quality in online forums and analysing social media posts/politician’s speeches. </p>
+      <div class="container div-model-explaination-image">
+        <figure>
+          <img class="meme-image" src="{{ url_for('static', filename='images/subjectivity-meme.png') }}" />
+      </figure>
+      </div>
     </div>
 
     <div class="div-paragraph-model-explaination">
@@ -119,11 +124,6 @@
     <div class="div-paragraph-model-explaination">
       <h2 class="extra-bold">Limitations of subjectivity with lexicons</h2>
       <p>Subjectivity lexicons  use individual words to determine subjectivity and not the context. Thus, two sentences using objective words would be deemed objective despite potentially being subjective. For example, the sentences “The queen is a monarch” and “The queen is a lizard” would both be deemed objective despite the second being subjective.</p>
-        <div class="container div-model-explaination-image">
-          <figure>
-            <a><img class="model-explaination-image" src="{{ url_for('static', filename='images/subjectivity-meme.png') }}" /></a>
-        </figure>
-        </div>
     </div>
 
   </div>

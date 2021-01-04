@@ -60,7 +60,7 @@ def predict_subjectivity(text):
 
     TextBlob_object = TextBlob(text)
     subjectivity_score = round(TextBlob_object.sentiment.subjectivity, 2)
-    output = "Subjectivity: " + str(subjectivity_score)
+    output = "Subjectivity score: " + str(subjectivity_score)
     
     return output
 
@@ -79,7 +79,7 @@ def flesch_reading_score(text):
     # note this has to be completed before text preprocessing
     readability_score = round(textstat.flesch_reading_ease(text), 2)
 
-    output = "Readability: " + str(readability_score)
+    output = "Readability score: " + str(readability_score)
 
     return output
 
