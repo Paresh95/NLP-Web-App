@@ -82,14 +82,105 @@
   </section>
 
 <!-- Model explaination section -->
-  <section class="section-model-explaination">
-    <div class="container div-model-explaination">
-      <div class="div-paragraph-model-explaination">
-        <h2 class="extra-bold">What is automatic text summarisation?</h1>
-        <p>Automatic text summarisation is a machine learning technique to produce summaries from long text. Real world applications include summarising news articles/reviews/emails/search engine results and checking the key points in long text.</p>
-      </div>
+<section class="section-model-explaination">
+  
+  <div class="container div-model-explaination">
+
+    <div class="div-paragraph-model-explaination">
+      <h2 class="extra-bold">What is readability analysis?</h2>
+      <p>Readability analysis is a natural language processing technique to determine the ease with which text can be read. Popular real-world applications include working out how easy it is to read different types of text, such as, company policies, marketing material and newspaper articles. This approach is useful to help the reader engage with written content.</p>
     </div>
-    </section>
+
+    <div class="div-paragraph-model-explaination">
+      <h2 class="extra-bold">Approaches to readability analysis</h2>
+      <p>The most obvious approach would be to examine the lengths of sentence/paragraph etc. Researchers have developed more sophisticated formulaic methods to calculate readability. These include: <a href="https://web.archive.org/web/20160712094308/http://www.mang.canterbury.ac.nz/writing_guide/writing/flesch.shtml">Flesch Reading Ease</a>, <a href="https://apps.dtic.mil/sti/citations/ADA006655">Flesch-Kincaid Grade Level</a> and <a href="https://www.worldcat.org/title/readability-revisited-the-new-dale-chall-readability-formula/oclc/32347586">Dale-Chall Readability Score</a>. The Flesch Reading Ease is one of the most popular and widely used. This is the approach implemented on this page. </p>
+    </div>
+
+    <div class="div-paragraph-model-explaination">
+      <h2 class="extra-bold">How does Flesch Reading Ease work?</h2>
+      <p>In the 1940s Rudolf Flesch worked on methods to improve the readability of newspapers for Associated Press. He developed the Flesch Reading Ease formula (see Figure 1). The interpretation of scores can be found in Table 1.</p>
+      <div style="overflow-x: auto;" class="container div-model-explaination-image">
+        <figure>
+          <p>$$Flesch\; Reading\; Ease\; Score = 206.835 - 1.015\left(\frac{Total\; Words}{Total\; Sentences}\right) - 84.6\left(\frac{Total\; Syllables}{Total\; Words}\right)$$</p>
+          <figcaption class="figcaption-model-explaination-image"><strong class="extra-bold">Figure 1. The Flesch Reading Ease formula. *If viewing on a mobile device you may need to scroll to reveal the whole formula.</strong></figcaption>
+        </figure>
+      </div>
+      <div style="overflow-x: auto;" class="div-flesch-table">
+        <figure>
+          <figcaption class="figcaption-model-explaination-image"><strong class="extra-bold">Table 1. The Flesch Reading Ease score interpretation.</strong></figcaption>
+          <table class="table-flesch">
+            <tr>
+              <th><strong class="extra-bold">Scores</strong></th>
+              <th><strong class="extra-bold">Reading difficulty</strong></th>
+              <th><strong class="extra-bold">Example</strong></th>
+            </tr>
+            <tr>
+              <td>91 - 100</td>
+              <td>Very easy</td>
+              <td>Understood by the average 10-year-old e.g. comic books</td>
+            </tr>
+            <tr>
+              <td>81 - 90</td>
+              <td>Easy</td>
+              <td>Understood by the average 11-year-old e.g. Roald Dahl books</td>
+            </tr>
+            <tr>
+              <td>71 - 80</td>
+              <td>Fairly easy</td>
+              <td>Understood by the average 12-year-old e.g. Harry Potter books </td>
+            </tr>
+            <tr>
+              <td>61 - 70</td>
+              <td>Plain English</td>
+              <td>Understood by the average 13-15-year old e.g. The Guardian articles</td>
+            </tr>
+            <tr>
+              <td>51 - 60</td>
+              <td>Fairly difficult</td>
+              <td>Understood by 15-18-year olds e.g. non-fiction books</td>
+            </tr>
+            <tr>
+              <td>31 - 50</td>
+              <td>Difficult</td>
+              <td>Understood by univeristy undergraduates e.g. academic papers</td>
+            </tr>
+            <tr>
+              <td>0 - 30</td>
+              <td>Very Difficult</td>
+              <td>Understood by university graduates e.g. statutory laws</td>
+            </tr>
+          </table>
+        </figure>
+      </div>
+
+      <p>The readability score is determined by two proportions. The number of words per sentence and the number of syllables per word. The higher these proportions the less readable the text is judged to be.</p>
+      <p>In the formula the two numbers 1.015 and 84.6 are multiplied by their respective proportions. Given these numbers more weight is given to reducing the readability score for the number of syllables per word than the number of words per sentence.</p>
+      <p>As a side note, you may have noticed it’s possible to get values outside the range of 100 to 0. The maximum score is 206.835. This occurs when no text is input. Scores between 100 to 206.835 occur when the number of syllables per word is 1. Scores below 0 can occur if the number of syllables per word is very high.</p>
+      <p><strong class="extra-bold">Fun fact</strong> – a <a href="https://en.wikipedia.org/wiki/Wikipedia:WikiProject_Vital_Articles/Readability">study</a> has calculated the Flesch Reading Ease score for 2000 articles about people on Wikipedia. The study found articles about sportspeople and entertainers to be the most readable, while articles about scientists and philosophers to be the lease readable. The least readable scientists are economists (Flesch score = 41.7), psychologists (42.25), chemists (42.81) and mathematicians (43.35).</p>  
+    </div>
+
+    <div class="div-paragraph-model-explaination">
+      <h2 class="extra-bold">Limitations of Flesch Reading Ease</h2>
+      <p>The score is based on the proportion of words to sentences and the proportion of syllables to words. This leads to a couple of problems:</p>
+      <ol>
+        <li>The formula does not account for other factors which determine the ease of reading. For example:</li>
+        <ol type=I>
+          <li>Is the content organised in an effective and ordered way?</li>
+          <li>Does it hold people’s attention?</li>
+          <li>Can people understand it e.g. are you using undefined acronyms.</li>
+          <p></p>
+        </ol>
+        <li>Text must be prepared to avoid misleading results. Embedded punctuation (e.g. a question mark in the middle of a sentence) and text not in full sentences (e.g. headings and bulleted lists) need to be formatted correctly or they will alter the proportion of words to sentences and therefore the Flesch Reading Ease score.</li>
+      </ol>
+    </div>
+
+    
+ 
+
+  </div>
+
+</section>
+
 
   <!-- Footer -->
   <section class="section-footer">
@@ -124,6 +215,18 @@
   <script src="{{ url_for('static', filename='js/navHover.js') }}"></script>
   <script src="{{ url_for('static', filename='js/rangeSlider.js') }}"></script>
   <script src="{{ url_for('static', filename='js/characterCount.js') }}"></script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      jax: ["input/TeX", "output/HTML-CSS"],
+      extensions: ["tex2jax.js"],
+      "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] },
+      tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], displayMath: [ ["$$","$$"], ["\\[", "\\]"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno" },
+      TeX: { noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } } },
+      messageStyle: "none"
+    });
+    </script>    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
 
 </body>
 
