@@ -7,18 +7,16 @@
   <!--Responsive web layout-->
   <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+  <!--Favicon-->
+  <link rel="icon" type="image/png" href="static/images/letter-p-green.png"/>
+
   <!-- Google fonts -->
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 
-  <!-- CSS Stylesheets -->
+  <!-- Bootstrap styles-->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-  <!-- Bootstrap Scripts -->
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
+  
   <!-- My styles -->
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/mystyles.css') }}">
 
@@ -68,10 +66,10 @@
             <img class="other-icon" src="{{ url_for('static', filename='images/newspaper-icon-green.png') }}" />
             <img class="other-icon" src="{{ url_for('static', filename='images/book-icon-green.png') }}" />
             <img class="other-icon" src="{{ url_for('static', filename='images/twitter-icon-green.png') }}" />
-            <p>Text data</p>
+            <p>Text Data</p>
             <p class="arrow-paragraph">&#8595;</p>
             <img class="other-icon" src="{{ url_for('static', filename='images/AI-icon-green.png') }}" />
-            <p>Machine learning</p>
+            <p>Machine Learning</p>
             <p class="arrow-paragraph">&#8595;</p>
           </div>
 
@@ -81,15 +79,9 @@
           <div class="row div-homepage-right-small-outer">
 
             <div class="col-s-2.5 div-homepage-right-small-inner">
-              <a class="icon-links" href="/summariser">
-                <img class="other-icon" src="{{ url_for('static', filename='images/text-icon-green.png') }}" />
-                <p class="nlp-icon-text">Text summarisation</p>
-              </a>
-            </div>
-            <div class="col-s-2.5 div-homepage-right-small-inner">
-              <a class="icon-links" href="/sentiment">
-                <img class="sentiment-icon other-icon" src="{{ url_for('static', filename='images/sentiment-icon-green.png') }}" />
-                <p class="nlp-icon-text">Sentiment analysis</p>
+              <a class="icon-links" href="/https://www.flaticon.com/authors/freepik">
+                <img class="other-icon" src="{{ url_for('static', filename='images/light-bulb-green.png') }}" />
+                <p class="nlp-icon-text">Natural Language Insights</p>
               </a>
             </div>
 
@@ -102,6 +94,14 @@
     </div>
 
     </div>
+  <!-- jquery scripts-->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  
+  <!-- Ajax script -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  
+  <!-- Bootstrap script -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
   <!-- My custom scripts -->
   <script src="{{ url_for('static', filename='js/animateTextHomepage.js') }}"></script>
