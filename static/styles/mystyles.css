@@ -171,12 +171,6 @@ body.homepage {
   max-height: 200px;
 }
 
-.div-homepage-right-small-outer{
-  text-align: center;
-  display: inline-block;
-  margin: 0 auto;
-}
-
 .div-homepage-right-small-inner{
   display: inline-block;
   margin: 0 auto;
@@ -194,6 +188,11 @@ padding-left: 25px;
     width: 100%;
 }
 
+.div-name-logo{
+  max-width: 200px;
+  display: inline-block;
+}
+
 .homepage-h2 {
   color: #fff;
   font-size: 2em;
@@ -208,6 +207,18 @@ padding-left: 25px;
 .other-icon{
   padding: 20px;
   width: 100px;
+  height: auto;
+}
+
+.larger-icon{
+  padding: 20px;
+  width: 110px;
+  height: auto;
+}
+
+.name-icon{
+  padding: 5px;
+  width: 50px;
   height: auto;
 }
 
@@ -522,6 +533,10 @@ tr:nth-child(even){background-color: #f2f2f2}
   border-radius: 0;
   padding-bottom: 20px;
 }
+
+
+
+
 
 
 

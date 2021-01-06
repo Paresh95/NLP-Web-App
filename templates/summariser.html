@@ -7,6 +7,9 @@
   <!--Responsive web layout-->
   <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+  <!--Favicon-->
+  <link rel="icon" type="image/png" href="static/images/letter-p-green.png"/>
+
   <!-- Google fonts -->
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
@@ -134,8 +137,8 @@
             <p>The example provided is a simplification. In practice, word embeddings map most of the words in the English dictionary to hundreds of dimensions. I will not go into how word embeddings are calculated, but if you are interested please click <a href="https://arxiv.org/pdf/1310.4546.pdf">here</a>.</p>
             <div class="container div-model-explaination-image">
               <figure>
-                <a href="https://corpling.hypotheses.org/495"><img class="model-explaination-image" src="{{ url_for('static', filename='images/word-embeddings-image.jpg') }}" /></a>
-                <figcaption class="figcaption-model-explaination-image"><strong class="extra-bold">Figure 1. Word embeddings in a 3-dimensional vector space.</strong> [Reference: Guillaume Desagulier, "Word embeddings: the (very) basics," in Around the word, 25/04/2018]</figcaption>
+                <img class="model-explaination-image" src="{{ url_for('static', filename='images/word-embeddings-image.jpg') }}" />
+                <figcaption class="figcaption-model-explaination-image"><strong class="extra-bold">Figure 1. Word embeddings in a 3-dimensional vector space.</strong> [Photo credits: <a href="https://corpling.hypotheses.org/495">Guillaume Desagulier</a>]</figcaption>
             </figure>
             </div>
           </li>
@@ -144,8 +147,8 @@
             The similarity matrix is converted into a network graph (see Figure 2), with sentences as vertices (circles) and similarity scores as edges (connections between circles).
             <div class="container div-model-explaination-image">
               <figure>
-                <a href="https://www.researchgate.net/figure/Graph-of-sentence-similarities-built-on-a-sample-text-Scores-reflecting-sentence_fig1_228340005"><img class="model-explaination-image" src="https://www.researchgate.net/profile/Paul_Tarau/publication/228340005/figure/fig1/AS:650513741774852@1532105970144/Graph-of-sentence-similarities-built-on-a-sample-text-Scores-reflecting-sentence.png" alt="Graph of sentence similarities built on a sample text. Scores reflecting sentence importance are shown in brackets next to each sentence."/></a>
-                <figcaption class="figcaption-model-explaination-image"><strong class="extra-bold">Figure 2. Network graph of sentence similarities. Scores reflecting sentence importance are shown in brackets next to each sentence. </strong> [Reference: A language independent algorithm for single and multiple document summarization - Scientific Figure on ResearchGate. ]</figcaption>
+                <img class="model-explaination-image" src="https://www.researchgate.net/profile/Paul_Tarau/publication/228340005/figure/fig1/AS:650513741774852@1532105970144/Graph-of-sentence-similarities-built-on-a-sample-text-Scores-reflecting-sentence.png" alt="Graph of sentence similarities built on a sample text. Scores reflecting sentence importance are shown in brackets next to each sentence."/>
+                <figcaption class="figcaption-model-explaination-image"><strong class="extra-bold">Figure 2. Network graph of sentence similarities. Scores reflecting sentence importance are shown in brackets next to each sentence. </strong> [Photo credits: <a href="https://www.researchgate.net/figure/Graph-of-sentence-similarities-built-on-a-sample-text-Scores-reflecting-sentence_fig1_228340005">ResearchGate</a>]</figcaption>
             </figure>
             </div>
           </li>

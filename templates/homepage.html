@@ -52,8 +52,12 @@
       <!-- Headings Div -->
       <div class="row div-homepage-main">
         <div class="col-lg-7 div-homepage-headings">
-          <h1 class="homepage-h1"><strong>Natural Language Processing with Paresh</strong></h1>
-          <h2 class="homepage-h2">Use techniques like...
+          <h1 class="homepage-h1"><strong>Natural Language Processing with 
+            <div class="div-name-logo">
+              <img class="name-icon" src="{{ url_for('static', filename='images/letter-p-green.png') }}" />aresh</strong>
+            </div>
+          </h1>
+          <h2 class="homepage-h2">Learn about...
             <span class="txt-rotate" data-period="1000" data-rotate='[ "text summarisation.", "sentiment analysis.", "subjectivity analysis.", "readability analysis."]'></span>
           </h2>
         </div>
@@ -68,23 +72,11 @@
             <img class="other-icon" src="{{ url_for('static', filename='images/twitter-icon-green.png') }}" />
             <p>Text Data</p>
             <p class="arrow-paragraph">&#8595;</p>
-            <img class="other-icon" src="{{ url_for('static', filename='images/AI-icon-green.png') }}" />
-            <p>Machine Learning</p>
+            <img class="larger-icon" src="{{ url_for('static', filename='images/AI-icon-green.png') }}" />
+            <p>Text Analysis</p>
             <p class="arrow-paragraph">&#8595;</p>
-          </div>
-
-        
-
-          <!-- Icons NLP applications Div -->
-          <div class="row div-homepage-right-small-outer">
-
-            <div class="col-s-2.5 div-homepage-right-small-inner">
-              <a class="icon-links" href="/https://www.flaticon.com/authors/freepik">
-                <img class="other-icon" src="{{ url_for('static', filename='images/light-bulb-green.png') }}" />
-                <p class="nlp-icon-text">Natural Language Insights</p>
-              </a>
-            </div>
-
+            <a class="icon-links" href="/https://www.flaticon.com/authors/freepik"><img class="larger-icon" src="{{ url_for('static', filename='images/light-bulb-green.png') }}" /></a>
+            <p class="nlp-icon-text">Text Insights</p>
           </div>
 
         </div>
