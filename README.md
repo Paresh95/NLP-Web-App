@@ -2,7 +2,9 @@
 
 A flask web app to showcase some simple Natural Language Processing (NLP) techniques to analyse text. The web app is deployed via Heroku. 
 
-#### Website link: https://nlp-with-paresh.herokuapp.com/ (may takes 30 seconds to start up if unused in the last 30 minutes)
+#### Website link: https://nlp-with-paresh.herokuapp.com/ 
+
+Note: it may takes 30 seconds to start up if unused in the last 30 minutes
 
 
 *Example screenshots of the Web Application:*
