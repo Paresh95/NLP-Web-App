@@ -306,7 +306,11 @@ textarea.form-control {
   height: 250px;
   resize: none;
 }
-  
+
+.div-textbox-1{
+  margin-bottom: 50px; /*Stops the reduced text summary overlapping the button on mobile */
+}
+
 .summarise-btn{
   font-size: 1.2em;
   float: right;
