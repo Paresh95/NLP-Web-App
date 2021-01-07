@@ -12,3 +12,16 @@ Website link:
 <img src=website_progress_images/Version%200.95.png width=100%>
 <img src=website_progress_images/Version%200.96.png width=100%>
 </p>
+
+
+### How to use with Docker
+
+1) `cd` into the `NLP-Web-App` folder on your terminal. 
+
+2) Install [Docker](https://docs.docker.com/get-docker/)
+
+3) On your terminal run `docker build -t nlp-web-app .`. This tells Docker to build a container called 'nlp-web-app' from the set of instructions in the Dockerfile which resides in the current working directory. 
+
+4) Next run `docker run -p 5000:5000 nlp-web-app`. This runs your container on your local server and forwards the request from port 5000 on the host (your computer) to port 5000 in the container. 
+
+5) Access the web app via `http://0.0.0.0:5000/`
