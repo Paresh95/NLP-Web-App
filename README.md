@@ -30,4 +30,5 @@ Website link: https://nlp-with-paresh.herokuapp.com/
 https://devcenter.heroku.com/articles/getting-started-with-python#deploy-the-app
 
 `heroku ps:scale web=1`
+
 `heroku apps:rename nlp-with-paresh`
