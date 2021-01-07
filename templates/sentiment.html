@@ -108,19 +108,19 @@
     <div class="div-paragraph-model-explaination">
       <h2 class="extra-bold">How do you build a sentiment lexicon and score the sentiment of text?</h2>
       <ol>
-        <li class="extra-bold">Building a sentiment lexicon</li>
+        <strong class="extra-bold"><li>Building a sentiment lexicon</li></strong>
         <p></p>
         <p>A sentiment lexicon consists of hundreds/thousands of words associated with positive, negative and neutral sentiment. Each word has a polarity score (between -1 to 1) to indicate sentiment strength. For example, “good” may have the score 0.7 whilst “great” may have the score 0.8.</p>
         <p>How are these words and scores obtained? There are several methods 1) computational linguistic experts manually score words, 2) machine learning algorithms assign scores to words by training on sentiment annotated text, or 3) they are estimated via word ontologies. Popular pre-defined word and score lists include: <a href="https://github.com/aesuli/SentiWordNet/blob/master/data/SentiWordNet_3.0.0.txt">SentiWordNet</a>, <a href="https://github.com/fnielsen/afinn/blob/master/afinn/data/AFINN-en-165.txt">AFINN</a> and <a href="https://pydigger.com/pypi/labMTsimple">labMT</a>.</p>
-        <li class="extra-bold">Scoring the sentiment of text</li>
+        <strong class="extra-bold"><li>Scoring the sentiment of text</li></strong>
         <p></p>
         <p>With a lexicon built, sentiment scores can be calculated for text. This may differ depending on implementation. Since I used TextBlob I will explain how this score is calculated.</p>
         <p>TextBlob uses simple averaging along with other special case rules to express sentiment. Let’s break it down.</p>
         <ol type="I">
-          <li class="extra-bold">The base case - simple averaging</li>
+          <strong class="extra-bold"><li>The base case - simple averaging</li></strong>
           <p></p> 
           <p>Assume the words “jail” and “good” have polarity scores -0.1 and 0.7 respectively. If all other words have a polarity score of 0, the sentence “My jail is good” will use the average polarity i.e. [-0.1 + 0.7]/2 = 0.3.</p>
-          <li class="extra-bold">Special cases - Negation, modifiers, 1 letter words and unknown words</li>
+          <strong class="extra-bold"><li>Special cases - Negation, modifiers, 1 letter words and unknown words</li></strong>
           <p></p>
           <p>If we change the sentence to “My jail is not good” the sentence turns negative. The word “not” <strong class="extra-bold">negates</strong> the positive sentiment of the word “good”. TextBlob recognises this and uses a negation multiplier of -0.5 to multiply the polarity of the word “good”. The sentence’s polarity is given by [-0.1 + (-0.5)*0.7]/2 = -0.225.</p>
           <p>If we change the sentence to “My jail is very good” the sentence becomes more positive. The word “very” modifies the positive strength of the word “good”. TextBlob’s lexicon not only captures the polarity score, but also the intensity score. The intensity score determines if a word modifies the next word. TextBlob recognises “very” as a <strong class="extra-bold">modifier</strong> word and ignores it’s polarity score (0.2) and uses it’s intensity score (1.3) to multiply the following word. The sentence’s polarity is given by [-0.1 + (1.3*0.7)]/2 = 0.405. Interestingly, this same logic also applies for punctuation modifiers like exclamation marks (you can try this yourself above!).</p>

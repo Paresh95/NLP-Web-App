@@ -172,15 +172,15 @@
         <p>BERT is a state-of-the-art machine learning model for text summarisation. The model works best when trained on a huge text-based dataset to learn the contextual relationships between words.</p>
         <p>I really wanted to showcase BERT in this web application, but unfortunately, I ran into a few problems synonymous with abstractive models:</p>
         <ol>
-          <li class="extra-bold">Long training time</li>
+          <strong class="extra-bold"><li>Long training time</li></strong>
           <p></p>  
           <p>Training a model of this nature generally requires multiple high-performance GPUs in the cloud. This can be very expensive. Furthermore, this is an energy intensive process which leads to environmental costs. To limit these problems machine learning researchers have open-sourced pre-trained models such as BERT so others do not need to burden the brunt of the economic or environmental costs. Therefore, I was able to overcome this issue by using a pre-trained BERT model.</p>
-          <li class="extra-bold">Large storage requirement</li>
+          <strong class="extra-bold"><li>Large storage requirement</li></strong>
           <p></p>
           <p>The pre-trained BERT model was trained on the 800GB+ Colossal Clean Crawled Corpus. This dataset consists of raw web page data, extracted metadata and text extractions from the web. BERT uses this to learn the contextual relationships between words in text and stores that information as “pre-trained weights” also sometimes referred to as “parameters”. We can download these parameters to use BERT. Depending on which version of BERT you are using the number of parameters can range from 30 million (BERT small) to 11 billion (BERT large). The storage space for small and large BERT are 231.1MB and 42.1GB respectively.</p>
           <p>I am hosting my web application via a service called Heroku. The lite version of Heroku offers 512MB RAM storage space. As you may have guessed BERT large is way too big to store on my lite account! Of course, I could have upgraded my lite Heroku instance to increase the RAM, but that could get expensive</p>
           <p>That said, I managed to overcome this issue by using BERT small.</p>
-          <li class="extra-bold">Long text summarisation time</li>
+          <strong class="extra-bold"><li>Long text summarisation time</li></strong>
           <p></p>
           <p>Heroku and other similar platforms tend to have a server response timeout limit to maintain good customer service. This is usually 30 seconds, meaning that the web application crashes after this limit is reached. BERT small takes about 40 seconds to 1 minute to summarise text (as it uses 30 million parameters). As you may have guessed, my server crashed. I have a couple of ideas for workarounds, but they’re quite time consuming. Given that this is a side project I opted to sub-out BERT and sub-in TextRank. TextRank (as is the case for other extractive methods) is a much smaller model to store and has no pre-trained weights, thus the text summarisation is much faster. </p>
           <p>If you’re interested in implementing BERT or just want to have a play feel free to reach out and I can point you in the right direction!</p>
