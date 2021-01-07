@@ -25,3 +25,6 @@ Website link: https://nlp-with-paresh.herokuapp.com/
 4) Next run `docker run -p 5000:5000 nlp-web-app`. This runs your container on your local server and forwards the request from port 5000 on the host (your computer) to port 5000 in the container. 
 
 5) Access the web app via `http://0.0.0.0:5000/`
+
+### Heroku documentation
+https://devcenter.heroku.com/articles/getting-started-with-python#deploy-the-app
