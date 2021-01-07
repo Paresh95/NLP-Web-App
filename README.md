@@ -7,5 +7,5 @@ Website link:
 *Example screenshot of the Web Application:*
 
 <p align="center">
-<img src=website_progress_images/Version%0.91.png width=100%>
+<img src=website_progress_images/Version%200.91.png width=100%>
 </p>
