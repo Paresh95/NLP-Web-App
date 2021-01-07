@@ -14,7 +14,7 @@ Website link:
 </p>
 
 
-### How to use with Docker
+### How to run locally with Docker
 
 1) `cd` into the `NLP-Web-App` folder on your terminal. 
 
