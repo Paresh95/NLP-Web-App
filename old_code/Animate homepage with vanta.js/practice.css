@@ -1,0 +1,30 @@
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.headings-div{
+    color: #fff;
+    text-align: left;
+    position: relative;
+    top: 200px;
+    font-size: 2em;
+    padding: 100px;
+}
+
+
+
+
+
+#vantaNet {
+    position: absolute;
+    display: block;
+    min-width: 100%;
+    min-height: 100vh;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: -1;
+
+}

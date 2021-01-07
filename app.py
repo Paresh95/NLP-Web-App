@@ -13,6 +13,11 @@ def home():
     return render_template("homepage.html") 
 
 
+@app.route('/about')
+def about():
+    return render_template("about.html") 
+
+
 @app.route('/summariser')
 def summariser():
     return render_template("summariser.html", default_slider_value=40) 

@@ -3,12 +3,15 @@
 body {
   font-family: 'Montserrat', sans-serif;
   }
+
   
 /* Navigation Bar*/
 
 .main-icon{
   width: 50px;
   height: auto;
+  position: relative;
+  bottom: 10px;
   position: fixed;
   top: 20px;
   left: 35px;
@@ -21,9 +24,9 @@ nav {
 	right: 0;
 	top: 0;
 	font-family: 'Montserrat', sans-serif;
-	padding: 0;
+	padding: 0 5%;
 	height: 100px;
-  background-color: #222426;
+	background-color: #222426;
 }
 
 nav a{
@@ -39,7 +42,7 @@ nav .links {
 	float: right;
 	padding: 0;
 	margin: 0;
-	width: 75%;
+	width: 60%;
 	height: 100%;
 	display: flex;
 	justify-content: space-around;
@@ -148,11 +151,11 @@ body.homepage {
 .div-homepage-main{
   position: relative;
   top: 150px;
-  padding-bottom: 50px;
 }
 
 .div-homepage-right{
   text-align: center;
+  min-width: 400px;
   color: #888;
   transform:scale(1);
 }
@@ -162,42 +165,42 @@ body.homepage {
   padding-bottom: 150px;
 }  
 
-.div-text-data{
-  text-align:center;
-  color: #888;
-}
-
 .div-machine-learning{
   max-height: 200px;
+}
+
+.div-homepage-right-small-outer{
+  text-align: center;
+  width: 400px;
+  min-width: 450px;
+  min-width: 150px;
+  display: inline-block;
+  margin: 0 auto;
 }
 
 .div-homepage-right-small-inner{
   display: inline-block;
   margin: 0 auto;
+  padding: 0px 10px;
 }
 
 .homepage-h1, .homepage-h2{
+max-width: 800px;
 position: relative;
-padding-left: 25px;
+left: 25px;
 }
 
 .homepage-h1 { 
-    font-size: 2.5rem; 
-    margin-top: 100px;
-    margin-bottom: 100px;
-    width: 100%;
-}
-
-.div-name-logo{
-  max-width: 200px;
-  display: inline-block;
+    font-size: 3.5em; 
+    padding-bottom: 100px;
+    max-width: 90%;
 }
 
 .homepage-h2 {
   color: #fff;
   font-size: 2em;
   position: absolute;
-  width: 90%;
+  padding-left: 25px;
 }
 
 .txt-rotate{
@@ -207,18 +210,6 @@ padding-left: 25px;
 .other-icon{
   padding: 20px;
   width: 100px;
-  height: auto;
-}
-
-.larger-icon{
-  padding: 20px;
-  width: 110px;
-  height: auto;
-}
-
-.name-icon{
-  padding: 5px;
-  width: 50px;
   height: auto;
 }
 
@@ -233,33 +224,22 @@ padding-left: 25px;
   text-decoration: none !important;
 }
 
+.text-data{
+  text-align:center;
+  color: #888;
+  max-height: 200px;
+}
+
 .arrow-paragraph{
-  font-size: 5rem;
-  max-height: 70px;
+  font-size: 90px;
+  max-height: 100px;
   position: relative;
   bottom: 50px;
-  margin-bottom: -30px;
+  padding-bottom: 50px;
 }
 
-.nlp-icon-text{
-  width: 90%;
-  margin: auto;
-}
-  
-
-/*About pages styles*/
-.section-about-explaination{
-  margin-top: 130px;
-  color: #000000;
-}
-
-.personal-image{
-  border-radius: 200px;
-}
-
-
-
-/*Demo pages styles - mainly for summariser page*/
+   
+/*Demo pages styles*/
 
 .section-header{
   padding-top: 50px;
@@ -270,10 +250,9 @@ padding-left: 25px;
   font-size: 45px;
 }
   
-.demo-headings{ 
-  width: 90%;
-  margin: auto;
-  text-align: center;
+.demo-headings{
+  text-align: center; 
+
 }
 
 #demo-section{
@@ -287,12 +266,16 @@ padding-left: 25px;
 
 .div-demo{
   padding-top: 40px;
-  padding-bottom: 50px;
+  padding-bottom: 20px;
+}
+
+.div-input-text-box{
+  padding-bottom: 30px;
 }
 
 .demo-helper-text{
   font-size: 1.5em;
-  line-height: 1.5em;
+  line-height: 1em;
 }
 
 .form-control{
@@ -302,154 +285,39 @@ padding-left: 25px;
   
 textarea.form-control {
   margin-top: 25px;
-  margin-bottom: 10px;
+  margin-bottom: 25px;
   height: 250px;
   resize: none;
 }
   
-.summarise-btn{
+.submit{
+  position: relative;
+  right: 15px;
   font-size: 1.2em;
   float: right;
   width: 150px;
   background-color: #15b327;
   color: #fff;
   border: none;
-  margin-top: 20px;
-  margin-bottom: 15px;
 }
 
 .number-box{
   text-align: center; 
+  position: relative;
   font-size: 1.2rem;
-  width: 40px;
-  height: 30px;
+  bottom: 2px;
+  width: 30px;
+  height: 20px;
   color: #080808;
 }
 
 .text-label{
-  font-size: 10px;
-  height: 50px;
-  padding-top: 30px;
+  line-height: 3rem;
+  font-size: 12px;
 }
 
 
-/* Slider on summariser demo page*/
-
-.slidecontainer {
-  width: 100%; /* Width of the outside container */
-  height: 50px;
-}
-
-.slider-text{
-  width: 120%;
-}
-
-.slider:hover {
-  opacity: 1; /* Fully shown on mouse-over */
-}
-
-.slider {
-  -webkit-appearance: none;
-  height: 5px;
-  border-radius: 5px;  
-  background: #888;
-  outline: none;
-  opacity: 0.7;
-  -webkit-transition: .2s;
-  transition: opacity .2s;
-  margin-top: 10px;
-  width: 60% !important;
-}
-
-.slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%; 
-  background: #15b327;
-  cursor: pointer;
-}
-
-.slider::-moz-range-thumb {
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  background: #15b327;
-  cursor: pointer;
-}
-
-
-/*Model explaination styles*/
-.section-model-explaination{
-  margin-top: 50px;
-  color: #000000;
-}
-
-.div-model-explaination{
-  text-align: left;
-  font-family: 'Montserrat', sans-serif !important;
-  font-size: 1.3em;
-}
-
-.div-paragraph-model-explaination{
-  margin-bottom: 50px;
-}
-
-.extra-bold{      
-  text-shadow: 0.5px 0 #000000;
-}
-
-.div-model-explaination-image{
-  text-align: center;
-  width: 100%;
-  margin-top: 30px;
-}
-
-.model-explaination-image{
-  width: 50%;
-  height: auto;
-  min-width: 190px;
- }
-
- .meme-image{
-  width: 30%;
-  height: auto;
-  min-width: 190px;
- }
-
- .figcaption-model-explaination-image{
-  font-size: 0.8em !important;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  text-align: center;
- }
-
-
- /*Demo page footer styles*/
-.section-footer{
-  background-color: #222426;
-  color: #fff;
-  text-align: center;
-  font-size: 0.8em;
-}
-
-.a-social-icon{
-  color:inherit !important;
-}
-
-.social-icon {
-  width: 40px !important;
-  height: auto !important;
-  margin: 20px 10px;
-}
-
-.social-icon:hover{
-  color: #888;
-}
-
-
-/* Demo page loading spinner */
+/* Page loading spinner */
 .spinner-wrapper{
   width: 100%;
   height: 100%;
@@ -500,61 +368,12 @@ textarea.form-control {
 }
 
 
-/*sentiment page styles*/
-.positive{
-  color: #15b327 !important;
-}
-
-.neutral{
-  color: orange !important;
-}
-
-.negative{
-  color: red !important;
-}
-
-.div-output-text{
-  margin-bottom: 10px !important;
-}
-
-
-/*readability page styles*/
-.div-flesch-table{
-  margin-top: 30px;
-  margin-bottom: 30px;
-}
-
-.table-flesch {
-  border-collapse: collapse;
-  border-spacing: 0;
-  width: 100%;
-  border: 1px solid #ddd;
-  font-size: 1.4rem;
-}
-
-th, td {
-  text-align: center;
-  padding: 8px;
-}
-
-tr:nth-child(even){background-color: #f2f2f2}
-
-
 /*Error pages styles*/
 .alert-custom{
   border: none;
   border-radius: 0;
   padding-bottom: 20px;
 }
-
-
-
-
-
-
-
-
-
 
 
 
