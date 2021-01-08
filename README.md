@@ -32,6 +32,9 @@ Note: it may takes 30 seconds to start up if unused in the last 30 minutes
 ### Heroku documentation
 https://devcenter.heroku.com/articles/getting-started-with-python#deploy-the-app
 
+### Google analytics
+https://m.youtube.com/watch?v=f3X-hYRxBL8
+
 `heroku ps:scale web=1`
 
 `heroku apps:rename nlp-with-paresh`
