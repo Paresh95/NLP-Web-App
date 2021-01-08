@@ -29,11 +29,11 @@ Note: it may takes 30 seconds to start up if unused in the last 30 minutes
 
 5) Access the web app via `http://0.0.0.0:5000/`
 
-### Heroku documentation
-https://devcenter.heroku.com/articles/getting-started-with-python#deploy-the-app
-
 ### Google analytics
 https://m.youtube.com/watch?v=f3X-hYRxBL8
+
+### Heroku documentation
+https://devcenter.heroku.com/articles/getting-started-with-python#deploy-the-app
 
 `heroku ps:scale web=1`
 
