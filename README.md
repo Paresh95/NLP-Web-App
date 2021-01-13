@@ -4,7 +4,7 @@ A flask web app to showcase some simple Natural Language Processing (NLP) techni
 
 ### Website link: https://nlp-with-paresh.herokuapp.com/ 
 
-Note: it may takes 30 seconds to start up if unused in the last 30 minutes
+Note: it may takes 30 seconds to start up if unused in the last 30 minutes. I am pinging the server every 30 mins to stop this happening, but Heroku requires I shut the app down for 6 hours a day - I've chosen 2am-8am UK time. 
 
 <br>
 *Example screenshots of the Web Application:*
