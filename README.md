@@ -36,7 +36,7 @@ https://m.youtube.com/watch?v=f3X-hYRxBL8
 
 http://kaffeine.herokuapp.com/#!
 
-### Heroku documentation
+### Heroku documentation.
 https://devcenter.heroku.com/articles/getting-started-with-python#deploy-the-app
 
 `heroku ps:scale web=1`
