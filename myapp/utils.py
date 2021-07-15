@@ -18,6 +18,7 @@ def url_text_extractor(url):
 
     return article.text
 
+
 def check_for_url(text):
     """
     Check if text input is a url. If so it extracts the website text
@@ -46,7 +47,6 @@ def check_for_url(text):
     return text
 
 
-
 def get_reduced_text_perc(summary_text, summarised_text):
     """
     Input
@@ -62,6 +62,6 @@ def get_reduced_text_perc(summary_text, summarised_text):
     summarised_text_length = len(str(summarised_text).split())
 
     reduced_perc = "Text reduced by " + str(round(100 - (summarised_text_length/summary_text_length)*100, 2)) + \
-        "% (" +str(summarised_text_length) + " words/" + str(summary_text_length) + ")"
+        "% (" + str(summarised_text_length) + " words/" + str(summary_text_length) + ")"
 
     return reduced_perc

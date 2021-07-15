@@ -6,7 +6,8 @@ from utils import check_for_url
 
 app = Flask(__name__)
 
-### Default pages before input text ###
+# Default pages before input text
+
 
 @app.route('/')
 def home():
@@ -38,7 +39,7 @@ def readability():
     return render_template("readability.html")
 
 
-### Pages after text input ###
+# Pages after text input
 
 @app.route("/summariser", methods=['POST'])
 def summariser2():
@@ -48,16 +49,16 @@ def summariser2():
     summary_text = check_for_url(summary_text)
     summarised_text, reduced_perc = predict_summariser(summary_text, length=slider_value)
 
-    return render_template('summariser.html', summarised_text=summarised_text, \
-        summary_text=summary_text, reduced_text_perc=reduced_perc, \
-            default_slider_value=slider_value)
+    return render_template('summariser.html', summarised_text=summarised_text,
+                           summary_text=summary_text, reduced_text_perc=reduced_perc,
+                           default_slider_value=slider_value)
 
 
 @app.route("/sentiment", methods=['POST'])
 def sentiment2():
     input_text = """{}""".format(request.form['input-sentiment-text'])
-    input_text = check_for_url(input_text) # check if text or url and web scrap if url
-    
+    input_text = check_for_url(input_text)  # check if text or url and web scrap if url
+
     sentiment = predict_sentiment(input_text)
     interpretation = "*Interpretation - Sentiment ranges from -1 \
         (extremely negative) to 1 (extremely positive)."
@@ -73,8 +74,8 @@ def subjectivity2():
     interpretation = "*Interpretation - Subjectivity ranges from 0 (very objective)\
         to 1 (very subjective)."
 
-    return render_template('subjectivity.html', input_text=input_text, \
-        subjectivity=subjectivity, interpretation=interpretation)
+    return render_template('subjectivity.html', input_text=input_text,
+                           subjectivity=subjectivity, interpretation=interpretation)
 
 
 @app.route("/readability", methods=['POST'])
@@ -86,11 +87,11 @@ def readability2():
             100 (very easy to read). For values outside of this range read the \
                 section below on Flesch Reading Ease."
 
-    return render_template('readability.html', input_text=input_text, \
-        readability=readability, interpretation=interpretation)
+    return render_template('readability.html', input_text=input_text,
+                           readability=readability, interpretation=interpretation)
 
 
-### Error handling ### 
+# Error handling
 
 @app.errorhandler(Exception)
 def server_error(err):
