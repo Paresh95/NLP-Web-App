@@ -3,7 +3,6 @@ from models import predict_summariser, predict_sentiment, predict_subjectivity, 
 from newspaper.article import ArticleException
 from utils import check_for_url
 
-
 app = Flask(__name__)
 
 # Default pages before input text

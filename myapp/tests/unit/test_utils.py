@@ -1,14 +1,13 @@
-import sys
+# note file needs to be run from myapp/
+
+# cd two levels up i.e. to myapp
+# now the imported functions in app.py will work
 import os
-import pytest
+import sys
+topdir = os.path.join(os.path.dirname(__file__), "../..")
+sys.path.append(topdir)
 
-# get current working directory
-cwd = os.getcwd()
-
-# change the sys path - allows modules from other folders to be imported
-sys.path.append(cwd)
-
-from myapp.utils import url_text_extractor, check_for_url, get_reduced_text_perc
+from myapp.utils import url_text_extractor, check_for_url
 from unittest import mock
 
 # sample data
@@ -32,8 +31,4 @@ def test_check_url_with_url(mock_url_text_extractor):
 
 def test_check_url_with_text():
     assert check_for_url(text) == clean_text
-
-
-def test_get_reduced_text_perc():
-    assert get_reduced_text_perc("hi there kids", "hi") == "Text reduced by 66.67% (1 words/3)"
 
