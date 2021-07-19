@@ -1,7 +1,12 @@
+import os
+import sys
+topdir = os.path.join(os.path.dirname(__file__), "..")
+sys.path.append(topdir)
+
 from flask import Flask, request, render_template
-from models import predict_summariser, predict_sentiment, predict_subjectivity, flesch_reading_score
+from myapp.models import predict_summariser, predict_sentiment, predict_subjectivity, flesch_reading_score
 from newspaper.article import ArticleException
-from utils import check_for_url
+from myapp.utils import check_for_url
 
 app = Flask(__name__)
 
