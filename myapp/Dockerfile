@@ -1,6 +1,6 @@
 FROM python:3.6.12
-WORKDIR /project
-ADD . /project
+WORKDIR /myapp
+ADD . /myapp
 RUN pip3 -q install pip --upgrade
 RUN pip install -r requirements.txt
 EXPOSE 5000
