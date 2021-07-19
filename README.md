@@ -19,7 +19,7 @@ Note: it may takes 30 seconds to start up if unused in the last 30 minutes. I am
 
 ### How to run locally with Docker
 
-1) `cd` into the `NLP-Web-App` folder on your terminal. 
+1) `cd` into the `NLP-Web-App/myapp` folder on your terminal. 
 
 2) Install [Docker](https://docs.docker.com/get-docker/)
 
