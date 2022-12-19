@@ -1,6 +1,6 @@
 # NLP-Web-App
 
-A flask web app to showcase some simple Natural Language Processing (NLP) techniques to analyse text. The web app is deployed via Heroku. 
+A flask web app to showcase some simple Natural Language Processing (NLP) techniques to analyse text. The web app is deployed via Heroku (note heroku has depreciated it's free tier as of the 28th November 2022 and hence this app is not currently deployed).
 
 ### Website link: https://nlp-with-paresh.herokuapp.com/ 
 
