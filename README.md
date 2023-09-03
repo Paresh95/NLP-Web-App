@@ -1,6 +1,6 @@
 # NLP-Web-App
 
-Note: Unfortunately, Heroku has removed their free tier so this web app is no longer deployed.
+**Note: Unfortunately, Heroku has removed their free tier so this web app is no longer deployed.**
 
 A flask web app to showcase some simple Natural Language Processing (NLP) techniques to analyse text. The web app is deployed via Heroku (note heroku has depreciated it's free tier as of the 28th November 2022 and hence this app is not currently deployed).
 
